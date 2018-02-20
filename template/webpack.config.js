@@ -23,12 +23,20 @@ const config = platform => {
             },
           },
         },
+        {
+          test: /\.vue$/,
+          loader: 'nativescript-vue-loader',
+        },
       ],
     },
     resolve: {
       modules: [
         'node_modules/tns-core-modules',
         'node_modules',
+      ],
+      extensions: [
+        '.js',
+        '.vue',
       ],
     },
     externals (context, request, callback) {
