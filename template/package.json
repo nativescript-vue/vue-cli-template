@@ -1,0 +1,8 @@
+{
+  "name": "{{ name }}",
+  "version": "{{ version }}",
+  "description": "{{ description }}",
+  "scripts": {},
+  "author": "{{ author }}",
+  "license": "{{ license }}"
+}
