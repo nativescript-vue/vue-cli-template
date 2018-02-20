@@ -2,7 +2,21 @@
   "name": "{{ name }}",
   "version": "{{ version }}",
   "description": "{{ description }}",
-  "scripts": {},
+  "scripts": {
+    "build": "webpack --progress --hide-modules",
+    "build:android": "npm run build -- --env.android",
+    "build:ios": "npm run build -- --env.ios",
+    "dev": "webpack --watch",
+    "dev:android": "npm run dev -- --env.android",
+    "dev:ios": "npm run dev -- --env.ios"
+  },
+  "dependencies": {
+    "nativescript-vue": "^1.0.0",
+    "tns-core-modules": "^3.4.0"
+  },
+  "devDependencies": {
+    "webpack": "^3.11.0"
+  },
   "author": "{{ author }}",
   "license": "{{ license }}"
 }
