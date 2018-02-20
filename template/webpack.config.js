@@ -1,8 +1,10 @@
 const path = require('path');
+const NativeScriptVueTarget = require('nativescript-vue-target');
 
 // Generate platform-specific webpack configuration
 const config = platform => {
   return {
+    target: NativeScriptVueTarget,
     entry: path.resolve(__dirname, './src/main.js'),
     output: {
       path: path.resolve(__dirname, './dist/app'),

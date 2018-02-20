@@ -15,6 +15,7 @@
     "tns-core-modules": "^3.4.0"
   },
   "devDependencies": {
+    "nativescript-vue-target": "^0.1.0",
     "webpack": "^3.11.0"
   },
   "author": "{{ author }}",
