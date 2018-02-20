@@ -37,6 +37,12 @@ const config = platform => {
       }
       callback();
     },
+    node: {
+      'http': false,
+      'timers': false,
+      'setImmediate': false,
+      'fs': 'empty',
+    },
   };
 };
 
