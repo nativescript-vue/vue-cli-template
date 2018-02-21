@@ -1,5 +1,6 @@
 const path = require('path');
 const NativeScriptVueTarget = require('nativescript-vue-target');
+const FileManagerPlugin = require('filemanager-webpack-plugin');
 
 // Generate platform-specific webpack configuration
 const config = platform => {
@@ -45,6 +46,18 @@ const config = platform => {
       }
       callback();
     },
+    plugins: [
+      new FileManagerPlugin({
+        onEnd: {
+          copy: [
+            {
+              source: path.resolve(__dirname, './src/resources'),
+              destination: path.resolve(__dirname, './dist/app/App_Resources'),
+            },
+          ],
+        },
+      }),
+    ],
     node: {
       'http': false,
       'timers': false,
