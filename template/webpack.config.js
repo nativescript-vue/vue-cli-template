@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const NativeScriptVueTarget = require('nativescript-vue-target');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const FileManagerPlugin = require('filemanager-webpack-plugin');
 
 // Generate platform-specific webpack configuration
@@ -50,6 +51,7 @@ const config = platform => {
       callback();
     },
     plugins: [
+      new CleanWebpackPlugin(['dist']),
       new webpack.optimize.UglifyJsPlugin({
         compress: {warnings: false},
         output: {comments: false},
