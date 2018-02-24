@@ -36,7 +36,9 @@ const config = platform => {
         'node_modules',
       ],
       extensions: [
+        `.${platform}.js`,
         '.js',
+        `.${platform}.vue`,
         '.vue',
       ],
     },
