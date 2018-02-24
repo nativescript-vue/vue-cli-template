@@ -6,7 +6,7 @@
     "build": "webpack --progress --hide-modules",
     "build:android": "npm run build -- --env.android",
     "build:ios": "npm run build -- --env.ios",
-    "dev": "webpack --watch",
+    "dev": "webpack --watch --hide-modules",
     "dev:android": "npm run dev -- --env.android",
     "dev:ios": "npm run dev -- --env.ios"
   },
