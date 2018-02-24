@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const NativeScriptVueTarget = require('nativescript-vue-target');
 const FileManagerPlugin = require('filemanager-webpack-plugin');
 
@@ -49,6 +50,10 @@ const config = platform => {
       callback();
     },
     plugins: [
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {warnings: false},
+        output: {comments: false},
+      }),
       new FileManagerPlugin({
         onEnd: {
           copy: [
