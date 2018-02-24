@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const NativeScriptVueTarget = require('nativescript-vue-target');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const FileManagerPlugin = require('filemanager-webpack-plugin');
+const WebpackSynchronizableShellPlugin = require('webpack-synchronizable-shell-plugin');
 
 // Generate platform-specific webpack configuration
 const config = platform => {
@@ -52,6 +53,15 @@ const config = platform => {
     },
     plugins: [
       new CleanWebpackPlugin(['dist']),
+      new WebpackSynchronizableShellPlugin({
+        onBuildStart: {
+          scripts: [
+            'tns create dist --template nativescript-vue-base-template',
+          ],
+          blocking: true,
+          parallel: false,
+        },
+      }),
       new webpack.optimize.UglifyJsPlugin({
         compress: {warnings: false},
         output: {comments: false},

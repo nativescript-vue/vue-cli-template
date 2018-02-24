@@ -11,20 +11,22 @@
     "dev:ios": "npm run dev -- --env.ios"
   },
   "dependencies": {
-    "nativescript-vue": "^1.2.0",
-    "tns-core-modules": "^3.4.1"
+    "nativescript-vue": "1.0.0",
+    "tns-core-modules": "3.4.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "clean-webpack-plugin": "^0.1.18",
+    "css-loader": "^0.28.10",
     "filemanager-webpack-plugin": "^1.0.24",
     "nativescript-vue-loader": "^0.1.5",
     "nativescript-vue-target": "^0.1.0",
     "nativescript-vue-template-compiler": "^1.0.0",
     "vue-template-compiler": "^2.5.13",
-    "webpack": "^3.11.0"
+    "webpack": "^3.11.0",
+    "webpack-synchronizable-shell-plugin": "0.0.6"
   },
   "author": "{{ author }}",
   "license": "{{ license }}"
