@@ -1,10 +1,6 @@
 const path = require('path');
-const merge = require('webpack-merge');
 const webpack = require('webpack');
 const NativeScriptVueTarget = require('nativescript-vue-target');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const FileManagerPlugin = require('filemanager-webpack-plugin');
-const WebpackSynchronizableShellPlugin = require('webpack-synchronizable-shell-plugin');
 
 // Generate platform-specific webpack configuration
 const config = platform => {
@@ -61,38 +57,10 @@ const config = platform => {
   };
 };
 
-// Prepare NativeScript application config using webpack plugins (should be exported only once)
-const tnsConfig = {
-  plugins: [
-    new CleanWebpackPlugin(['dist']),
-    new WebpackSynchronizableShellPlugin({
-      onBuildStart: {
-        scripts: [
-          'tns create dist --template nativescript-vue-base-template',
-        ],
-        blocking: true,
-        parallel: false,
-      },
-    }),
-    new FileManagerPlugin({
-      onEnd: {
-        copy: [
-          {
-            source: path.resolve(__dirname, './src/resources'),
-            destination: path.resolve(__dirname, './dist/app/App_Resources'),
-          },
-        ],
-      },
-    }),
-  ],
-};
-
 // Determine platform(s) from webpack CLI environment options
 module.exports = env => {
   const platforms = ['ios', 'android'];
   const platform = env && (env.android && 'android' || env.ios && 'ios');
 
-  return platforms.includes(platform)
-    ? merge(tnsConfig, config(platform))
-    : [merge(tnsConfig, config('android')), config('ios')];
+  return platforms.includes(platform) ? config(platform) : [config('android'), config('ios')];
 };

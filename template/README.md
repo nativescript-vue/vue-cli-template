@@ -2,7 +2,7 @@
 
 > {{ description }}
 
-## Build Setup
+## Usage
 
 ``` bash
 # Install dependencies
@@ -12,5 +12,8 @@ npm install
 npm run build
 
 # ...or watch for changes
-nmp run dev
+npm run dev
+
+# Run NativeScript application from another terminal
+tns run --path dist
 ```
