@@ -1,15 +1,37 @@
 const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const NativeScriptVueTarget = require('nativescript-vue-target');
 
 // Generate platform-specific webpack configuration
 module.exports = platform => {
+
+  // CSS / SCSS style extraction loaders
+  const cssLoader = ExtractTextPlugin.extract({
+    use: [
+      {
+        loader: 'css-loader',
+        options: {url: false},
+      },
+    ],
+  });
+  const scssLoader = ExtractTextPlugin.extract({
+    use: [
+      {
+        loader: 'css-loader',
+        options: {url: false},
+      },
+      'sass-loader',
+    ],
+  });
+
   return {
     target: NativeScriptVueTarget,
     entry: path.resolve(__dirname, './src/main.js'),
     output: {
       path: path.resolve(__dirname, './dist/app'),
-      filename: `app.bundle.${platform}.js`,
+      filename: `app.${platform}.js`,
     },
     module: {
       rules: [
@@ -19,8 +41,22 @@ module.exports = platform => {
           loader: 'babel-loader',
         },
         {
+          test: /\.css$/,
+          use: cssLoader,
+        },
+        {
+          test: /\.scss$/,
+          use: scssLoader,
+        },
+        {
           test: /\.vue$/,
-          loader: 'nativescript-vue-loader',
+          loader: 'ns-vue-loader',
+          options: {
+            loaders: {
+              css: cssLoader,
+              scss: scssLoader,
+            },
+          },
         },
       ],
     },
@@ -43,6 +79,12 @@ module.exports = platform => {
       callback();
     },
     plugins: [
+      new ExtractTextPlugin({filename: `app.${platform}.css`}),
+      new OptimizeCssAssetsPlugin({
+        cssProcessor: require('cssnano'),
+        cssProcessorOptions: {discardComments: {removeAll: true}},
+        canPrint: false,
+      }),
       new webpack.optimize.UglifyJsPlugin({
         compress: {warnings: false},
         output: {comments: false},

@@ -2,7 +2,7 @@
   "android": {
     "v8Flags": "--expose_gc"
   },
-  "main": "app.bundle.js",
+  "main": "app.js",
   "name": "{{ name }}",
   "version": "{{ version }}"
 }
