@@ -8,12 +8,9 @@
 # Install dependencies
 npm install
 
-# Build for production...
+# Watch for changes and run the application
+npm start
+
+# Build for production
 npm run build
-
-# ...or watch for changes
-npm run dev
-
-# Run NativeScript application from another terminal
-tns run --path dist
 ```

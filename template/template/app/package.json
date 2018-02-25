@@ -1,0 +1,8 @@
+{
+  "android": {
+    "v8Flags": "--expose_gc"
+  },
+  "main": "app.bundle.js",
+  "name": "{{ app_name }}",
+  "version": "{{ version }}"
+}

@@ -9,15 +9,15 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
 ``` bash
 # Scaffold project
 npm install -g vue-cli
-vue init lewebsimple/vue-cli-template my-project
-cd my-project
+vue init lewebsimple/vue-cli-template <project-name>
+cd <project-name>
 
 # Install dependencies
 npm install
 
-# Build for production...
-npm run build
+# Watch for changes and run the application
+npm start
 
-# ...or watch for changes
-nmp run dev
+# Build for production
+npm run build
 ```

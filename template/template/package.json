@@ -1,0 +1,11 @@
+{
+	"description": "{{ description }}",
+	"license": "{{ license }}",
+	"readme": "{{ app_name }}",
+	"nativescript": {
+		"id": "{{ app_id }}"
+	},
+	"dependencies": {
+		"tns-core-modules": "3.4.0"
+	}
+}

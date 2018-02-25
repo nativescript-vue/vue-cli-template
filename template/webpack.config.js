@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const NativeScriptVueTarget = require('nativescript-vue-target');
 
 // Generate platform-specific webpack configuration
-const config = platform => {
+module.exports = platform => {
   return {
     target: NativeScriptVueTarget,
     entry: path.resolve(__dirname, './src/main.js'),
@@ -55,12 +55,4 @@ const config = platform => {
       'fs': 'empty',
     },
   };
-};
-
-// Determine platform(s) from webpack CLI environment options
-module.exports = env => {
-  const platforms = ['ios', 'android'];
-  const platform = env && (env.android && 'android' || env.ios && 'ios');
-
-  return platforms.includes(platform) ? config(platform) : [config('android'), config('ios')];
 };
