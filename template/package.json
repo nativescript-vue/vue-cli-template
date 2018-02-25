@@ -13,8 +13,8 @@
     "watch:ios": "PLATFORM=ios npm run watch"
   },
   "dependencies": {
-    "nativescript-vue": "1.0.0",
-    "tns-core-modules": "3.4.0"
+    "nativescript-vue": "^1.2.0",
+    "tns-core-modules": "3.4.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
