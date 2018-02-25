@@ -1,7 +1,7 @@
 const config = require('./webpack.config');
 const fs = require('fs-extra');
 const path = require('path');
-const {spawn} = require('child_process');
+const {execSync, spawn} = require('child_process');
 const webpack = require('webpack');
 const winston = require('winston-color');
 
@@ -12,8 +12,12 @@ const platform = process.env.PLATFORM || 'android';
 const distPath = path.resolve(__dirname, './dist');
 const templatePath = path.resolve(__dirname, './template');
 if (!fs.existsSync(distPath)) {
+  winston.info('Preparing NativeScript application from template...');
   fs.ensureDirSync(distPath);
   fs.copySync(templatePath, distPath, {overwrite: true});
+  execSync('NODE_ENV=development npm i', {cwd: 'dist'});
+} else {
+  winston.info('NativeScript application already prepared.');
 }
 
 // Run NativeScript application
@@ -29,14 +33,14 @@ const tnsRunApplication = (platform) => {
   }
   const tnsProcess = spawn('tns', [action, platform], {cwd: 'dist', stdio: 'inherit'});
   tnsProcess.on('close', (code) => {
-    winston.info(`NativeScript process exited with code ${code}`);
+    winston.info(`NativeScript process exited with code ${code}.`);
   });
 };
 
 let firstBuild = true;
 const onWebpackComplete = (err, stats) => {
   // Output webpack build stats
-  winston.info('Webpack build complete');
+  winston.info('Webpack build complete.');
   console.log(stats.toString({
     children: false,
     hash: false,

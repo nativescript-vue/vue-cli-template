@@ -1,11 +1,17 @@
 {
 	"description": "{{ description }}",
 	"license": "{{ license }}",
-	"readme": "{{ app_name }}",
+	"readme": "{{ name }}",
 	"nativescript": {
 		"id": "{{ app_id }}"
 	},
 	"dependencies": {
 		"tns-core-modules": "3.4.0"
+	},
+	"devDependencies": {
+		"babel-traverse": "6.26.0",
+		"babel-types": "6.26.0",
+		"babylon": "6.18.0",
+		"lazy": "1.0.11"
 	}
 }

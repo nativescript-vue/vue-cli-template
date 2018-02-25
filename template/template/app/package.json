@@ -3,6 +3,6 @@
     "v8Flags": "--expose_gc"
   },
   "main": "app.bundle.js",
-  "name": "{{ app_name }}",
+  "name": "{{ name }}",
   "version": "{{ version }}"
 }

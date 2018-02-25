@@ -4,12 +4,13 @@
   "description": "{{ description }}",
   "main": "index.js",
   "scripts": {
+    "build": "npm run clean && NODE_ENV=production node index.js",
+    "build:android": "PLATFORM=android npm run build",
+    "build:ios": "PLATFORM=ios npm run build",
+    "clean": "rimraf dist",
     "start": "node index.js",
-    "start:android": "PLATFORM=android node index.js",
-    "start:ios": "PLATFORM=ios node index.js",
-    "build": "NODE_ENV=production node index.js",
-    "build:android": "PLATFORM=android NODE_ENV=production node index.js",
-    "build:ios": "PLATFORM=ios NODE_ENV=production node index.js"
+    "start:android": "PLATFORM=android npm run start",
+    "start:ios": "PLATFORM=ios npm run start"
   },
   "dependencies": {
     "nativescript-vue": "1.0.0",
@@ -24,6 +25,7 @@
     "nativescript-vue-loader": "^0.1.5",
     "nativescript-vue-target": "^0.1.0",
     "nativescript-vue-template-compiler": "^1.2.0",
+    "rimraf": "^2.6.2",
     "vue-template-compiler": "^2.5.13",
     "webpack": "^3.11.0",
     "winston-color": "^1.0.0"
