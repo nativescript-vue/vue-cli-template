@@ -8,9 +8,9 @@
     "build:android": "PLATFORM=android npm run build",
     "build:ios": "PLATFORM=ios npm run build",
     "clean": "rimraf dist",
-    "start": "node index.js",
-    "start:android": "PLATFORM=android npm run start",
-    "start:ios": "PLATFORM=ios npm run start"
+    "watch": "node index.js",
+    "watch:android": "PLATFORM=android npm run watch",
+    "watch:ios": "PLATFORM=ios npm run watch"
   },
   "dependencies": {
     "nativescript-vue": "1.0.0",

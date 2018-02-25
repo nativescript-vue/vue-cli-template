@@ -24,11 +24,11 @@ if (!fs.existsSync(distPath)) {
 const tnsRunApplication = (platform) => {
   let action;
   if (env === 'production') {
-    winston.info('Building NativeScript application...');
+    winston.info(`Building NativeScript application (${platform})...`);
     action = 'build';
   }
   else {
-    winston.info('Running NativeScript application...');
+    winston.info(`Running NativeScript application (${platform})...`);
     action = 'run';
   }
   const tnsProcess = spawn('tns', [action, platform], {cwd: 'dist', stdio: 'inherit'});
