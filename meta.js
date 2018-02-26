@@ -37,5 +37,8 @@ module.exports = {
       const parts = version.split('.');
       return parts[0] + '0' + parts[1] + '0' + parts[2];
     },
+    cleanAppName: (name) => {
+      return name.replace(/\W/g, '');
+    },
   },
 };
