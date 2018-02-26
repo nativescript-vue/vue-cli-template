@@ -1,7 +1,8 @@
 const config = require('./webpack.config');
 const fs = require('fs-extra');
 const path = require('path');
-const {execSync, spawn} = require('child_process');
+const {execSync } = require('child_process');
+const spawn = require('cross-spawn');
 const webpack = require('webpack');
 const winston = require('winston-color');
 
@@ -15,7 +16,7 @@ if (!fs.existsSync(distPath)) {
   winston.info('Preparing NativeScript application from template...');
   fs.ensureDirSync(distPath);
   fs.copySync(templatePath, distPath, {overwrite: true});
-  execSync('NODE_ENV=development npm i', {cwd: 'dist'});
+  execSync('cross-env NODE_ENV=development npm i', {cwd: 'dist'});
 } else {
   winston.info('NativeScript application already prepared.');
 }
