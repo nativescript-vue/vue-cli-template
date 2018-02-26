@@ -9,7 +9,7 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
 ``` bash
 # Scaffold project
 npm install -g vue-cli
-vue init lewebsimple/vue-cli-template <project-name>
+vue init nativescript-vue/vue-cli-template <project-name>
 cd <project-name>
 
 # Install dependencies
