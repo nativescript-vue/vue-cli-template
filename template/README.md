@@ -12,7 +12,9 @@ npm install
 npm run build:android
 npm run build:ios
 
-# Watch for changes and run the application
+# Build, watch for changes and run the application
 npm run watch:android
 npm run watch:ios
 ```
+
+For detailed instructions, see https://github.com/nativescript-vue/vue-cli-template
