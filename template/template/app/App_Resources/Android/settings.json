@@ -1,1 +1,1 @@
-{"appId":"org.nativescript.application","minSdkVersion":null,"targetSdkVersion":null}
+{"appId":"{{ app_id }}","minSdkVersion":null,"targetSdkVersion":null}
