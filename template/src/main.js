@@ -1,12 +1,8 @@
-const Vue = require('nativescript-vue');
-const App = require('./App').default;
+import Vue from 'nativescript-vue';
+import App from './App';
 
 import './styles.scss';
 
 new Vue({
-  template: `<page><app/></page>`,
-
-  components: {
-    App,
-  },
+  render: h => h(App),
 }).$start();
