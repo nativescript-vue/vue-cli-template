@@ -4,13 +4,13 @@
   "description": "{{ description }}",
   "main": "index.js",
   "scripts": {
-    "build": "npm run clean && NODE_ENV=production node index.js",
-    "build:android": "PLATFORM=android npm run build",
-    "build:ios": "PLATFORM=ios npm run build",
+    "build": "npm run clean && cross-env NODE_ENV=production node index.js",
+    "build:android": "cross-env PLATFORM=android npm run build",
+    "build:ios": "cross-env PLATFORM=ios npm run build",
     "clean": "rimraf dist",
     "watch": "node index.js",
-    "watch:android": "PLATFORM=android npm run watch",
-    "watch:ios": "PLATFORM=ios npm run watch"
+    "watch:android": "cross-env PLATFORM=android npm run watch",
+    "watch:ios": "cross-env PLATFORM=ios npm run watch"
   },
   "dependencies": {
     "nativescript-vue": "^1.2.0",
