@@ -1,7 +1,8 @@
 const config = require('./webpack.config');
 const fs = require('fs-extra');
 const path = require('path');
-const {execSync, spawn} = require('child_process');
+const {execSync } = require('child_process');
+const spawn = require('cross-spawn');
 const webpack = require('webpack');
 const winston = require('winston-color');
 
