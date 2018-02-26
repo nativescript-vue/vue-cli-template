@@ -15,7 +15,7 @@ if (!fs.existsSync(distPath)) {
   winston.info('Preparing NativeScript application from template...');
   fs.ensureDirSync(distPath);
   fs.copySync(templatePath, distPath, {overwrite: true});
-  execSync('NODE_ENV=development npm i', {cwd: 'dist'});
+  execSync('cross-env NODE_ENV=development npm i', {cwd: 'dist'});
 } else {
   winston.info('NativeScript application already prepared.');
 }
