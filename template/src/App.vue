@@ -4,25 +4,32 @@
 
         <StackLayout>
             <Label :text="msg" />
-            <HelloWorld />
+            {{#store}}<Counter />{{else}}<HelloWorld />{{/store}}
         </StackLayout>
     </Page>
 </template>
 
 <script>
-    import HelloWorld from './components/HelloWorld';
+  {{#store}}
+  import Counter from './components/Counter';
+  {{else}}
+  import HelloWorld from './components/HelloWorld';
+  {{/store}}
 
-    export default {
-      data() {
-        return {
-          msg: 'Welcome to NativeScript-Vue.',
-        }
-      },
-
-      components: {
-        HelloWorld
+  export default {
+    data() {
+      return {
+        msg: 'Welcome to NativeScript-Vue.',
       }
+    },
+    components: {
+      {{#store}}
+      Counter
+      {{else}}
+      HelloWorld
+      {{/store}}
     }
+  }
 </script>
 
 <style>

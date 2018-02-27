@@ -14,7 +14,9 @@
   },
   "dependencies": {
     "nativescript-vue": "^1.2.0",
-    "tns-core-modules": "3.4.1"
+    "tns-core-modules": "3.4.1"{{#store}},
+    "vuex": "^3.0.1"
+    {{/store}}
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
