@@ -31,6 +31,10 @@ module.exports = {
       label: 'License',
       default: 'MIT',
     },
+    store: {
+      type: 'confirm',
+      label: 'Vuex store',
+    },
   },
   helpers: {
     androidVersionCode: (version) => {
@@ -40,5 +44,9 @@ module.exports = {
     cleanAppName: (name) => {
       return name.replace(/\W/g, '');
     },
+  },
+  filters: {
+    'src/store/**/*': 'store',
+    'src/components/Counter.vue': 'store',
   },
 };
