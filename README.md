@@ -35,6 +35,6 @@ For these changes to take effect, the `build` or `watch` script must be restarte
 
 Once the boilerplate is copied inside `dist`, the script invokes webpack to assemble the project sources from `src` into `dist/app`.
 This is where NativeScript expects to find the files used to build the actual native application in the next and final step of the process.
-These files include the platform-specific script `app.{platform}.js` and stylesheet `app.{platform}.css`.
+These files include the platform-specific script `app.{platform}.js` and stylesheet `app.{platform}.css`, as well as the content of the `src/assets` directory.
 
 Finally, the script invokes `tns` (i.e. NativeScript CLI) to build the application and optionally run it on the specified platform.

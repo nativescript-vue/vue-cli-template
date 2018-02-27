@@ -3,18 +3,18 @@
         <Label text="This is a hello world component, tap the button if you dare!" textWrap="true"/>
         <Button @tap="surprise = !surprise" text="Tap me!"/>
 
-        <Image v-if="surprise" src="https://art.nativescript-vue.org/NativeScript-Vue.png"/>
+        <Image v-if="surprise" src="~/images/NativeScript-Vue.png"/>
     </StackLayout>
 </template>
 
 <script>
   export default {
-    data() {
+    data () {
       return {
         surprise: false,
-      }
+      };
     },
-  }
+  };
 </script>
 
 <style scoped>

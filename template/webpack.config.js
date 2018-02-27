@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const NativeScriptVueTarget = require('nativescript-vue-target');
@@ -61,6 +62,9 @@ module.exports = platform => {
       ],
     },
     resolve: {
+      alias: {
+        '~': path.resolve(__dirname, './src/assets'),
+      },
       modules: [
         'node_modules/tns-core-modules',
         'node_modules',
@@ -89,6 +93,9 @@ module.exports = platform => {
         compress: {warnings: false},
         output: {comments: false},
       }),
+      new CopyWebpackPlugin([
+        {from: 'assets', context: 'src'},
+      ]),
     ],
     node: {
       'http': false,
