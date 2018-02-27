@@ -73,7 +73,9 @@ module.exports = platform => {
       ],
     },
     externals (context, request, callback) {
-      if (context.indexOf('tns-core-modules') !== -1 || /^(tns-core-modules)/i.test(request)) {
+      if (context.indexOf('tns-core-modules') !== -1
+        || context.indexOf('nativescript-vue') !== -1
+        || /^(tns-core-modules)/i.test(request)) {
         return callback(null, 'commonjs ' + request);
       }
       callback();
