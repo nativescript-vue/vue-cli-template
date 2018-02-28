@@ -12,10 +12,14 @@ const platform = process.env.PLATFORM || 'android';
 // Prepare NativeScript application from template (if necessary)
 const distPath = path.resolve(__dirname, './dist');
 const templatePath = path.resolve(__dirname, './template');
+const hooksPath = path.resolve(__dirname, './hooks');
 if (!fs.existsSync(distPath)) {
   winston.info('Preparing NativeScript application from template...');
   fs.ensureDirSync(distPath);
   fs.copySync(templatePath, distPath, {overwrite: true});
+  if (fs.existsSync(hooksPath)) {
+    fs.copySync(hooksPath, path.join(distPath, "hooks"));
+  }
   execSync('cross-env NODE_ENV=development npm i', {cwd: 'dist'});
 } else {
   winston.info('NativeScript application already prepared.');
