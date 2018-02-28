@@ -13,6 +13,14 @@ const platform = process.env.PLATFORM || 'android';
 const distPath = path.resolve(__dirname, './dist');
 const templatePath = path.resolve(__dirname, './template');
 const hooksPath = path.resolve(__dirname, './hooks');
+
+const addProjectDependenciesToDistTemplate = () => {
+  const templatePackagePath = path.join(distPath, "package.json");
+  const templatePackageContents = require(templatePackagePath);
+  templatePackageContents.dependencies = require(path.join(__dirname, "package.json")).dependencies;
+  fs.writeFileSync(templatePackagePath, JSON.stringify(templatePackageContents, null, 2));
+};
+
 if (!fs.existsSync(distPath)) {
   winston.info('Preparing NativeScript application from template...');
   fs.ensureDirSync(distPath);
@@ -20,6 +28,7 @@ if (!fs.existsSync(distPath)) {
   if (fs.existsSync(hooksPath)) {
     fs.copySync(hooksPath, path.join(distPath, "hooks"));
   }
+  addProjectDependenciesToDistTemplate();
   execSync('cross-env NODE_ENV=development npm i', {cwd: 'dist'});
 } else {
   winston.info('NativeScript application already prepared.');
