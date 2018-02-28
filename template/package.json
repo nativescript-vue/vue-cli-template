@@ -8,7 +8,7 @@
     "build:android": "cross-env PLATFORM=android npm run build",
     "build:ios": "cross-env PLATFORM=ios npm run build",
     "clean": "rimraf dist",
-    "watch": "npm run clean && node index.js",
+    "watch": "node index.js",
     "watch:android": "cross-env PLATFORM=android npm run watch",
     "watch:ios": "cross-env PLATFORM=ios npm run watch"
   },
