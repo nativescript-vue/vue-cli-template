@@ -1,10 +1,10 @@
 <template>
     <StackLayout>
         <Label :text="message" textWrap="true"/>
-        <WrapLayout>
-            <Button @tap="decrement" text="-"/>
-            <Button @tap="increment" text="+"/>
-        </WrapLayout>
+        <GridLayout columns="*,*" rows="auto,auto">
+          <Button row="0" col="0" @tap="decrement" text="-"/>
+          <Button row="0" col="1" @tap="increment" text="+"/>
+        </GridLayout>
         <Image v-if="surprise" src="~/images/NativeScript-Vue.png"/>
     </StackLayout>
 </template>
@@ -31,6 +31,9 @@
 <style scoped>
     Button {
         background-color: #42b883;
+        padding: 10;
+        margin: 10;
+        font-size: 20;
         width: 50%;
     }
 </style>
