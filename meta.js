@@ -31,6 +31,10 @@ module.exports = {
       label: 'License',
       default: 'MIT',
     },
+    router: {
+      type: 'confirm',
+      label: 'Vue-Router',
+    },
     store: {
       type: 'confirm',
       label: 'Vuex store',
@@ -46,6 +50,8 @@ module.exports = {
     },
   },
   filters: {
+    'src/router/**/*': 'router',
+    'src/components/Home.vue': 'router',
     'src/store/**/*': 'store',
     'src/components/Counter.vue': 'store',
   },
