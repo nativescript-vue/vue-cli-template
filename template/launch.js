@@ -31,9 +31,12 @@ switch (action) {
 }
 
 if (action !== 'run' && !platform) {
-  exec(`tns ${action} android`, {cwd: 'dist', stdio: 'inherit'});
-  exec(`tns ${action} ios`, {cwd: 'dist', stdio: 'inherit'});
+  let tnsAndroidProcess = exec(`tns --path dist ${action} android`);
+  let tnsiOSProcess = exec(`tns --path dist ${action} ios`);
+  tnsAndroidProcess.stdout.pipe(process.stdout);
+  tnsiOSProcess.stdout.pipe(process.stdout);
 }
 else {
-  exec(`tns ${action} ${platform || ''}`, {cwd: 'dist', stdio: 'inherit'});
+  let tnsProcess = exec(`tns --path dist ${action} ${platform || ''}`);
+  tnsProcess.stdout.pipe(process.stdout);
 }

@@ -24,7 +24,7 @@ function copyNativeScriptPlugins () {
 function updateDistFromTemplate () {
   winston.info('Preparing NativeScript application from template...');
   fs.ensureDirSync(distPath);
-  fs.copySync(tplPath, distPath, {overwrite: true});
+  fs.copySync(tplPath, distPath, {overwrite: false});
   execSync('npm i', {cwd: 'dist'});
 }
 
