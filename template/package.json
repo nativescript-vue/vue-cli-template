@@ -2,15 +2,19 @@
   "name": "{{ name }}",
   "version": "{{ version }}",
   "description": "{{ description }}",
-  "main": "index.js",
+  "author": "{{ author }}",
+  "license": "{{ license }}",
   "scripts": {
-    "build": "npm run clean && cross-env NODE_ENV=production node index.js",
-    "build:android": "cross-env PLATFORM=android npm run build",
-    "build:ios": "cross-env PLATFORM=ios npm run build",
-    "clean": "rimraf dist",
-    "watch": "node index.js",
-    "watch:android": "cross-env PLATFORM=android npm run watch",
-    "watch:ios": "cross-env PLATFORM=ios npm run watch"
+    "build": "webpack --env.tnsAction build",
+    "build:android": "npm run build -- --env.android",
+    "build:ios": "npm run build -- --env.ios",
+    "debug": "webpack --watch --env.tnsAction debug",
+    "debug:android": "npm run debug -- --env.android",
+    "debug:ios": "npm run debug -- --env.ios",
+    "watch": "webpack --watch --env.tnsAction run",
+    "watch:android": "npm run watch -- --env.android",
+    "watch:ios": "npm run watch -- --env.ios",
+    "clean": "rimraf dist"
   },
   "dependencies": {
     "nativescript-vue": "^1.2.0",
@@ -24,14 +28,13 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "copy-webpack-plugin": "^4.4.2",
-    "cross-env": "^5.1.3",
-    "cross-spawn": "^6.0.4",
     "css-loader": "^0.28.10",
     "extract-text-webpack-plugin": "^3.0.2",
     "fs-extra": "^5.0.0",
+    "nativescript-vue-externals": "^0.1.0",
     "nativescript-vue-loader": "^0.1.5",
     "nativescript-vue-target": "^0.1.0",
-    "nativescript-vue-template-compiler": "^1.2.0",
+    "nativescript-vue-template-compiler": "^1.3.0",
     "node-sass": "^4.7.2",
     "ns-vue-loader": "^0.1.2",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
@@ -39,8 +42,7 @@
     "sass-loader": "^6.0.6",
     "vue-template-compiler": "^2.5.13",
     "webpack": "^3.11.0",
+    "webpack-synchronizable-shell-plugin": "0.0.6",
     "winston-color": "^1.0.0"
-  },
-  "author": "{{ author }}",
-  "license": "{{ license }}"
+  }
 }
