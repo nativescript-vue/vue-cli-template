@@ -1,9 +1,11 @@
 <template>
-  <StackLayout class="home">
-    <Label text="Welcome home!" class="page-title"/>
-    {{#store}}
-    <Button @tap="$router.push('/counter')" text="Counter"/>
-    {{/store}}
-    <Button @tap="$router.push('/hello')" text="Hello"/>
-  </StackLayout>
+  <Page>
+    <ActionBar title="Home"/>
+    <StackLayout class="home">
+      {{#store}}
+      <Button @tap="$router.push('/counter')" text="Counter"/>
+      {{/store}}
+      <Button @tap="$router.push('/hello')" text="Hello"/>
+    </StackLayout>
+  </Page>
 </template>

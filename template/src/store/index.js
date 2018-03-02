@@ -7,9 +7,13 @@ Vue.use(Vuex);
 
 const debug = process.env.NODE_ENV !== 'production';
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   modules: {
     counter,
   },
   strict: debug,
 });
+
+Vue.prototype.$store = store;
+
+module.exports = store;

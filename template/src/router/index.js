@@ -10,6 +10,7 @@ import Counter from '../components/Counter';
 {{/store}}
 
 const router = new VueRouter({
+  pageRouting: true,
   routes: [
     {
       path: '/home',

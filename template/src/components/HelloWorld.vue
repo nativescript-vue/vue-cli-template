@@ -1,13 +1,15 @@
 <template>
-  <StackLayout class="HelloWorld">
-    <Label text="Hello World" class="page-title"/>
-    <Label text="This is a hello world component, tap the button if you dare!" textWrap="true"/>
-    <Button @tap="surprise = !surprise" text="Tap me!"/>
-    <Image v-if="surprise" src="~/images/NativeScript-Vue.png"/>
-    {{#router}}
-    <Button @tap="$router.push('/home')">Go home</Button>
-    {{/router}}
-  </StackLayout>
+  <Page>
+    <ActionBar title="Hello world"/>
+    <StackLayout class="HelloWorld">
+      <Label text="This is a hello world component, tap the button if you dare!" textWrap="true"/>
+      <Button @tap="surprise = !surprise" text="Tap me!"/>
+      <Image v-if="surprise" src="~/images/NativeScript-Vue.png"/>
+      {{#router}}
+      <Button @tap="$router.push('/home')">Go home</Button>
+      {{/router}}
+    </StackLayout>
+  </Page>
 </template>
 
 <script>

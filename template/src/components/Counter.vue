@@ -1,16 +1,18 @@
 <template>
-  <StackLayout>
-    <Label text="Counter" class="page-title"/>
-    <Label :text="message" textWrap="true"/>
-    <WrapLayout>
-      <Button @tap="decrement" text="-"/>
-      <Button @tap="increment" text="+"/>
-    </WrapLayout>
-    <Image v-if="surprise" src="~/images/NativeScript-Vue.png"/>
-    {{#router}}
-    <Button @tap="$router.push('/home')">Go home</Button>
-    {{/router}}
-  </StackLayout>
+  <Page>
+    <ActionBar title="Counter"/>
+    <StackLayout>
+      <Label :text="message" textWrap="true"/>
+      <WrapLayout>
+        <Button @tap="decrement" text="-"/>
+        <Button @tap="increment" text="+"/>
+      </WrapLayout>
+      <Image v-if="surprise" src="~/images/NativeScript-Vue.png"/>
+      {{#router}}
+      <Button @tap="$router.push('/home')">Go home</Button>
+      {{/router}}
+    </StackLayout>
+  </Page>
 </template>
 
 <script>

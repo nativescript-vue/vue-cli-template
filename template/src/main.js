@@ -1,9 +1,13 @@
 import Vue from 'nativescript-vue';
 
-import App from './App';
-
 {{#router}}
 import router from './router';
+{{else}}
+{{#store}}
+import Counter from './components/Counter';
+{{else}}
+import HelloWorld from './components/HelloWorld';
+{{/store}}
 {{/router}}
 
 {{#store}}
@@ -12,17 +16,15 @@ import store from './store';
 
 import './styles.scss';
 
+// Uncommment the following to see NativeScript-Vue output logs
+//Vue.config.silent = false;
+
 new Vue({
 
   {{#router}}
   router,
-  template: `
-  <Page ref="page" actionBarHidden="true">
-    <router-view></router-view>
-  </Page>
-  `,
   {{else}}
-  render: h => h(App),
+  render: h => h({{#store}}Counter{{else}}HelloWorld{{/store}}),
   {{/router}}
 
   {{#store}}
