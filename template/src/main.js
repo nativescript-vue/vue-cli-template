@@ -29,9 +29,4 @@ new Vue({
   store,
   {{/store}}
 
-
-  }).$start();
-
-{{#router}}
-router.replace('/home');
-{{/router}}
+}).$start();
