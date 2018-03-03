@@ -1,7 +1,8 @@
 {
+	"name": "{{ name }}",
 	"description": "{{ description }}",
 	"license": "{{ license }}",
-	"readme": "{{ cleanAppName name }}",
+	"readme": "{{ app_name }}",
 	"nativescript": {
 		"id": "{{ app_id }}"
 	},

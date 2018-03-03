@@ -3,6 +3,6 @@
     "v8Flags": "--expose_gc"
   },
   "main": "app.js",
-  "name": "{{ cleanAppName name }}",
+  "name": "{{ name }}",
   "version": "{{ version }}"
 }

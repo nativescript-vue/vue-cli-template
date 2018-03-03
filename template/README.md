@@ -1,4 +1,4 @@
-# {{ name }}
+# {{ app_name }}
 
 > {{ description }}
 
