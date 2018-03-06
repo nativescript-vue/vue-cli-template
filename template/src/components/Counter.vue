@@ -1,17 +1,20 @@
 <template>
-  <Page>
-    <ActionBar title="Counter"/>
-    <StackLayout>
-      <Label :text="message" textWrap="true"/>
-      <WrapLayout>
-        <Button @tap="decrement" text="-"/>
-        <Button @tap="increment" text="+"/>
-      </WrapLayout>
-      <Image v-if="surprise" src="~/images/NativeScript-Vue.png"/>
+  <Page class="page">
+    <ActionBar class="action-bar" title="Counter">
       {{#router}}
-      <Button @tap="$router.push('/home')">Go home</Button>
+      <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" @tap="$router.push('/home')"/>
       {{/router}}
+    </ActionBar>
+
+    <StackLayout>
+      <FlexboxLayout flexDirection="row" justifyContent="center">
+        <Button @tap="decrement" text="-" class="btn btn-outline"/>
+        <Label :text="message" alignSelf="baseline" class="h2"/>
+        <Button @tap="increment" text="+" class="btn btn-outline"/>
+      </FlexboxLayout>
+      <Image v-if="surprise" src="~/images/NativeScript-Vue.png"/>
     </StackLayout>
+
   </Page>
 </template>
 
@@ -21,7 +24,7 @@
   export default {
     computed: {
       message () {
-        return `Counter: ${this.$store.state.counter.count}`;
+        return this.$store.state.counter.count.toString();
       },
       surprise () {
         return (this.$store.state.counter.count >= 5);
@@ -33,10 +36,3 @@
     ]),
   };
 </script>
-
-<style scoped>
-  Button {
-    background-color: #42b883;
-    width: 50%;
-  }
-</style>

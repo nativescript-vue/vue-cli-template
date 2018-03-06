@@ -71,6 +71,26 @@ module.exports = {
       type: 'confirm',
       label: 'Install vuex?',
     },
+    color_scheme: {
+      type: 'list',
+      label: 'Color scheme',
+      choices: [
+        'aqua',
+        'blue',
+        'brown',
+        'dark',
+        'forest',
+        'grey',
+        'lemon',
+        'light',
+        'lime',
+        'orange',
+        'purple',
+        'ruby',
+        'sky',
+      ],
+      default: 'light',
+    },
   },
   helpers: {
     androidVersionCode: (version) => {

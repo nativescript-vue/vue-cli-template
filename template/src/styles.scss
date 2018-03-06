@@ -1,15 +1,7 @@
-// Global <Label> style
-$label-color: royalblue;
-Label {
-  color: $label-color;
-}
+// NativeScript core theme
+// @see https://docs.nativescript.org/ui/theme
+@import '~nativescript-theme-core/scss/skins/{{ color_scheme }}/index';
+@import '~nativescript-theme-core/scss/index';
 
-// Global <Page> styles
-Page {
-  padding: 5
-}
-.page-title {
-  font-size: 24;
-  text-align: center;
-  margin: 10 0;
-}
+// Global SCSS styling
+// @see https://docs.nativescript.org/ui/styling

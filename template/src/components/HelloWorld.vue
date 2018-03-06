@@ -1,14 +1,21 @@
 <template>
-  <Page>
-    <ActionBar title="Hello world"/>
-    <StackLayout class="HelloWorld">
-      <Label text="This is a hello world component, tap the button if you dare!" textWrap="true"/>
-      <Button @tap="surprise = !surprise" text="Tap me!"/>
-      <Image v-if="surprise" src="~/images/NativeScript-Vue.png"/>
+  <Page class="page">
+    <ActionBar class="action-bar" title="Hello world">
       {{#router}}
-      <Button @tap="$router.push('/home')">Go home</Button>
+      <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" @tap="$router.push('/home')"/>
       {{/router}}
+    </ActionBar>
+
+    <StackLayout class="hello-world">
+      <Label class="body">
+        This is a hello world component, tap the button if you dare
+      </Label>
+
+      <Button class="btn btn-primary" @tap="surprise = !surprise" text="Tap me!"/>
+      <Image v-if="surprise" src="~/images/NativeScript-Vue.png"/>
+
     </StackLayout>
+
   </Page>
 </template>
 
@@ -23,19 +30,11 @@
 </script>
 
 <style scoped>
-  .HelloWorld {
+  .hello-world {
     margin: 20;
   }
 
   Label {
     color: red;
-  }
-
-  Button {
-    background-color: #42b883;
-    color: #35495e;
-    padding: 20;
-    font-size: 20;
-    margin: 20 0;
   }
 </style>

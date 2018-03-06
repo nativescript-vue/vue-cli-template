@@ -29,7 +29,10 @@ const config = (platform, launchArgs) => {
     use: [
       {
         loader: 'css-loader',
-        options: {url: false},
+        options: {
+          url: false,
+          includePaths: [path.resolve(__dirname, 'node_modules')],
+        },
       },
       'sass-loader',
     ],
@@ -77,9 +80,6 @@ const config = (platform, launchArgs) => {
     },
 
     resolve: {
-      alias: {
-        '~': path.resolve(__dirname, './src/assets'),
-      },
       modules: [
         'node_modules/tns-core-modules',
         'node_modules',

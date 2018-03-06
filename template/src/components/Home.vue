@@ -1,11 +1,11 @@
 <template>
-  <Page>
-    <ActionBar title="Home"/>
-    <StackLayout class="home">
-      {{#store}}
-      <Button @tap="$router.push('/counter')" text="Counter"/>
-      {{/store}}
-      <Button @tap="$router.push('/hello')" text="Hello"/>
+  <Page class="page">
+    <ActionBar class="action-bar" title="Styling"/>
+
+    <StackLayout>
+      <Button class="btn btn-primary" @tap="$router.push('/counter')">Counter</Button>
+      <Button class="btn btn-primary" @tap="$router.push('/hello')">Hello World</Button>
     </StackLayout>
+
   </Page>
 </template>

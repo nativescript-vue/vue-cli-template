@@ -7,6 +7,7 @@
 		"id": "{{ app_id }}"
 	},
   "dependencies": {
+    "nativescript-theme-core": "^1.0.4",
     "nativescript-vue": "^1.3.0",
     "tns-core-modules": "~3.4.1"
   },
