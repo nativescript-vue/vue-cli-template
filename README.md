@@ -52,3 +52,19 @@ This is where NativeScript expects to find the files used to build the native ap
 These files include the platform-specific script `app.<platform>.js` and stylesheet `app.<platform>.css`, as well as the content of the `src/assets` directory (aliased as `~`).
 
 Finally, the `launch.js` script is invoked once webpack has finished bundling the sources. This script executes `tns --path dist` (i.e. NativeScript CLI) with the appropriate arguments for building, debugging or running the application on the specified platform(s).
+
+## Using NativeScript plugins
+
+Installing plugins differs slightly from the official NativeScript [documentation](https://docs.nativescript.org/plugins/plugins#installing-plugins).
+
+Instead of `tns plugin add`, simply use `npm install` from the root of the project directory and clean the `dist` folder like so:
+
+```
+npm install <plugin-name>
+npm run clean
+```
+
+Please note that some plugins' instructions omit `tns-core-modules/` when importing required NtiveScript components. This will not work with this template, which requires the following:
+```
+import { Image } from "tns-core-modules/ui/image";
+```
