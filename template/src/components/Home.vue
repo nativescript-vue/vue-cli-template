@@ -1,6 +1,6 @@
 <template>
   <Page class="page">
-    <ActionBar class="action-bar" title="Styling"/>
+    <ActionBar class="action-bar" title="Home"/>
 
     <StackLayout>
       <Button class="btn btn-primary" @tap="$router.push('/counter')">Counter</Button>
