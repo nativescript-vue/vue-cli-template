@@ -14,7 +14,8 @@ function copyNativeScriptPlugins () {
   const plugins = Object.keys(appPackage.dependencies)
     .filter(key => key.indexOf('nativescript-') !== -1)
     .reduce((obj, key) => {
-      obj[key] = appPackage.dependencies[key];
+      const dep = appPackage.dependencies[key];
+      obj[key] = dep.indexOf('file:') === 0 ? 'file:../' + dep.slice(5) : dep;
       return obj;
     }, {});
   Object.assign(tplPackage.dependencies, plugins);
