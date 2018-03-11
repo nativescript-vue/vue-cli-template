@@ -38,7 +38,7 @@ npm run clean
 This template orchestrates the native application build process via webpack with the clever use of the `prepare.js` and `launch.js` scripts located at the root of the project directory.
 These are invoked directly from `webpack.config.js` before the bundling step and via `webpack-synchronizable-shell-plugin`, respectively.
 
-First of all, `prepare.js` creates or updates the (dispososable) instance of the NativeScript application inside `dist`.
+First of all, `prepare.js` creates or updates the (disposable) instance of the NativeScript application inside `dist`.
 It does so by creating a recursive copy of the `template` folder, where the default boilerplate for the NativeScript application is kept under version control for persistence.
 This means the `template` directory can be opened with NativeScript Sidekick to adjust the various application settings and Android permissions (though building from there is not possible).
 
@@ -49,7 +49,7 @@ These plugins will be resolved externally by webpack (i.e. when the native packa
 
 Once the application instance is ready inside `dist`, webpack bundles the project sources from `src` into `dist/app` for the specified platform(s).
 This is where NativeScript expects to find the files used to build the native application in the next and final step of the process.
-These files include the platform-specific script `app.<platform>.js` and stylesheet `app.<platform>.css`, as well as the content of the `src/assets` directory (aliased as `~`).
+These files include the platform-specific script `app.<platform>.js` and style sheet `app.<platform>.css`, as well as the content of the `src/assets` directory (aliased as `~`).
 
 Finally, the `launch.js` script is invoked once webpack has finished bundling the sources. This script executes `tns --path dist` (i.e. NativeScript CLI) with the appropriate arguments for building, debugging or running the application on the specified platform(s).
 
@@ -59,12 +59,13 @@ Installing plugins differs slightly from the official NativeScript [documentatio
 
 Instead of `tns plugin add`, simply use `npm install` from the root of the project directory and clean the `dist` folder like so:
 
-```
+```shell
 npm install <plugin-name>
 npm run clean
 ```
 
-Please note that some plugins' instructions omit `tns-core-modules/` when importing required NtiveScript components. This will not work with this template, which requires the following:
-```
+Please note that some plugins' instructions omit `tns-core-modules/` when importing required NativeScript components. This will not work with this template, which requires the following:
+
+```javascript
 import { Image } from "tns-core-modules/ui/image";
 ```
