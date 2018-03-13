@@ -4,7 +4,7 @@
 
 ## Usage
 
-This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
+This is a project template for [vue-cli](https://github.com/vuejs/vue-cli/tree/master).
 
 ``` bash
 # Scaffold project
