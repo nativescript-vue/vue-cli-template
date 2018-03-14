@@ -12,9 +12,50 @@ const NativeScriptVueTarget = require('nativescript-vue-target');
 require('./prepare')();
 
 // Generate platform-specific webpack configuration
-const config = (platform, launchArgs) => {
+const config = (platform, launchArgs, tnsAction) => {
 
   winston.info(`Bundling application for ${platform}...`);
+
+  const plugins = [
+
+    // Extract CSS to separate file
+    new ExtractTextPlugin({filename: `app.${platform}.css`}),
+
+    // Copy src/assets/**/* to dist/
+    new CopyWebpackPlugin([
+      {from: 'assets', context: 'src'},
+    ]),
+
+    // Execute post-build scripts with specific arguments
+    new WebpackSynchronizableShellPlugin({
+      onBuildEnd: {
+        scripts: [
+          ... launchArgs ? [`node launch.js ${launchArgs}`] : [],
+        ],
+        blocking: false,
+      },
+    }),
+
+  ]
+
+  if (tnsAction !== 'debug') {
+    plugins.push(
+
+      // Optimize CSS output
+      new OptimizeCssAssetsPlugin({
+        cssProcessor: require('cssnano'),
+        cssProcessorOptions: {discardComments: {removeAll: true}},
+        canPrint: false,
+      }),
+
+      // Minify JavaScript code
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {warnings: false},
+        output: {comments: false},
+      }),
+
+    )
+  }
 
   // CSS / SCSS style extraction loaders
   const cssLoader = ExtractTextPlugin.extract({
@@ -70,10 +111,7 @@ const config = (platform, launchArgs) => {
           test: /\.vue$/,
           loader: 'ns-vue-loader',
           options: {
-            loaders: {
-              css: cssLoader,
-              scss: scssLoader,
-            },
+            extractCSS: true,
           },
         },
       ],
@@ -98,40 +136,7 @@ const config = (platform, launchArgs) => {
 
     externals: NativeScriptVueExternals,
 
-    plugins: [
-
-      // Extract CSS to separate file
-      new ExtractTextPlugin({filename: `app.${platform}.css`}),
-
-      // Optimize CSS output
-      new OptimizeCssAssetsPlugin({
-        cssProcessor: require('cssnano'),
-        cssProcessorOptions: {discardComments: {removeAll: true}},
-        canPrint: false,
-      }),
-
-      // Minify JavaScript code
-      new webpack.optimize.UglifyJsPlugin({
-        compress: {warnings: false},
-        output: {comments: false},
-      }),
-
-      // Copy src/assets/**/* to dist/
-      new CopyWebpackPlugin([
-        {from: 'assets', context: 'src'},
-      ]),
-
-      // Execute post-build scripts with specific arguments
-      new WebpackSynchronizableShellPlugin({
-        onBuildEnd: {
-          scripts: [
-            ... launchArgs ? [`node launch.js ${launchArgs}`] : [],
-          ],
-          blocking: false,
-        },
-      }),
-
-    ],
+    plugins,
 
     stats: 'errors-only',
 
@@ -150,10 +155,10 @@ module.exports = env => {
   const action = (!env || !env.tnsAction) ? 'build' : env.tnsAction;
 
   if (!env || (!env.android && !env.ios)) {
-    return [config('android'), config('ios', action)];
+    return [config('android', action, env.tnsAction), config('ios', action, env.tnsAction)];
   }
 
-  return env.android && config('android', `${action} android`)
-    || env.ios && config('ios', `${action} ios`)
+  return env.android && config('android', `${action} android`, env.tnsAction)
+    || env.ios && config('ios', `${action} ios`, env.tnsAction)
     || {};
 };
