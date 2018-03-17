@@ -64,8 +64,4 @@ npm install <plugin-name>
 npm run clean
 ```
 
-Please note that some plugins' instructions omit `tns-core-modules/` when importing required NativeScript components. This will not work with this template, which requires the following:
-
-```javascript
-import { Image } from "tns-core-modules/ui/image";
-```
+Please note that some plugins still have issues resolving with this template, visit the community [Slack](https://developer.telerik.com/wp-login.php?action=slack-invitation) for getting them to work and for general help.
