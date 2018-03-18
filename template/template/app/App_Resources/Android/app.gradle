@@ -1,11 +1,11 @@
 // Add your native dependencies here:
 
 android {
-  defaultConfig {  
+  defaultConfig {
     generatedDensities = []
-    applicationId = "__PACKAGE__"
+    applicationId = "{{ app_id }}"
   }
-  aaptOptions {  
-    additionalParameters "--no-version-vectors"  
-  }  
-} 
+  aaptOptions {
+    additionalParameters "--no-version-vectors"
+  }
+}

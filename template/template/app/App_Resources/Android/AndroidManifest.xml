@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android" package="__PACKAGE__" android:versionCode="{{ androidVersionCode version }}" android:versionName="{{ version }}">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="__PACKAGE__" android:versionCode="{{ androidVersionCode version }}" android:versionName="{{ version }}">
     <supports-screens android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" android:xlargeScreens="true" />
     <uses-sdk android:minSdkVersion="17" android:targetSdkVersion="__APILEVEL__" />
     <uses-permission android:name="android.permission.INTERNET" />
