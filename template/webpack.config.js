@@ -173,6 +173,9 @@ const config = (platform, action) => {
 
 module.exports = env => {
   let configs = [];
+  if (!env) {
+    env = {action: 'build'};
+  }
   const action = env.action || 'build';
 
   if (!env.android && !env.ios) {
