@@ -12,6 +12,14 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const ExecTnsPlugin = require('exec-tns-webpack-plugin');
 
+const androidAvailable = process.env.ANDROID_HOME && fs.existsSync(process.env.ANDROID_HOME);
+const iosAvailable = process.platform === 'darwin';
+
+if (!androidAvailable && !iosAvailable) {
+  winston.error('No platform available, please check your environment.');
+  process.exit(-1);
+}
+
 const srcPath = path.resolve(__dirname, 'src');
 const tplPath = path.resolve(__dirname, 'template');
 const distPath = path.resolve(__dirname, 'dist');
@@ -165,19 +173,28 @@ const config = (platform, action) => {
 
 module.exports = env => {
   let configs = [];
+  const action = env.action || 'build';
 
-  // Determine platform(s) from env
-  if (!env) {
-    configs.push(config('android', 'build'));
-    configs.push(config('ios', 'build'));
-  } else {
-    if (env.android) {
-      configs.push(config('android', env.action || 'build'));
+  if (!env.android && !env.ios) {
+    if (androidAvailable) {
+      configs.push(config('android', action));
     }
-    if (env.ios) {
-      configs.push(config('ios', env.action || 'build'));
+    if (iosAvailable) {
+      configs.push(config('ios', action));
+    }
+  }
+  else {
+    if (env.android && androidAvailable) {
+      configs.push(config('android', action));
+    }
+    if (env.ios && iosAvailable) {
+      configs.push(config('ios', action));
     }
   }
 
+  if (!configs.length) {
+    winston.error('Could not configure selected platform(s), please check your environment.');
+    process.exit(-1);
+  }
   return configs;
 };
