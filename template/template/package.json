@@ -8,6 +8,9 @@
     "id": "{{ app_id }}",
     "tns-android": {
       "version": "3.4.2"
+    },
+    "tns-ios": {
+      "version": "3.4.1"
     }
   },
   "android": {
