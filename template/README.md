@@ -4,26 +4,43 @@
 
 ## Usage
 
+Install package dependencies:
 ``` bash
-# Install dependencies
 npm install
+```
 
-# Build for production
-npm run build
-npm run build:<platform>
+Execute one of the following depending on the situation:
+``` bash
+# Watch for changes and run the application on a connected device or native emulator
+npm start
 
-# Build, watch for changes and debug the application
+# Same as 'start', but run the application in debug mode
 npm run debug
-npm run debug:<platform>
 
-# Build, watch for changes and run the application
-npm run watch
-npm run watch:<platform>
+# Build the application for production or publication
+npm run build
 
-# Clean the NativeScript application instance (i.e. rm -rf dist)
+# Same as 'build', but also deploy the application to connected devices or native emulator
+npm run deploy
+```
+
+### Specifying target platform(s)
+
+Selecting the target platform(s) can be accomplished from the command line when invoking the above npm scripts.
+For example, the following will debug the application on Android only:
+``` bash
+npm run debug -- --env.android
+```
+
+Omitting the `-- --env.<platform>` argument will attempt to target both platforms, which will only work in a properly configured OSX environment.
+
+### Cleaning the build directory
+
+The NativeScript application in `dist/` can be destroyed using the following:
+``` bash
 npm run clean
 ```
 
-> When invoking the various npm scripts, omitting the platform will attempt to launch `tns` for both platforms, which will only work in a properly configured OSX environment.
+This can be useful when changing the application name or ID in `template/`.
 
-For detailed instructions, see https://github.com/nativescript-vue/vue-cli-template
+For more details, see https://github.com/nativescript-vue/vue-cli-template
