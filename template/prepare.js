@@ -5,6 +5,7 @@ const winston = require('winston-color');
 
 const distPath = path.resolve(__dirname, './dist');
 const tplPath = path.resolve(__dirname, './template');
+const hooksPath = path.resolve(__dirname, './hooks');
 
 const appPackage = require('./package.json');
 const tplPackage = require('./template/package.json');
@@ -25,6 +26,9 @@ function updateDistFromTemplate () {
   winston.info('Preparing NativeScript application from template...');
   fs.ensureDirSync(distPath);
   fs.copySync(tplPath, distPath, {overwrite: false});
+  if (fs.existsSync(hooksPath)) {
+    fs.copySync(hooksPath, path.join(distPath, "hooks"));
+  }
   execSync('npm i', {cwd: 'dist'});
 }
 
