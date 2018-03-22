@@ -65,12 +65,12 @@ module.exports = {
     },
     router: {
       type: 'confirm',
-      label: 'Install vue-router?',
+      label: 'Install vue-router? (experimental)',
       default: false,
     },
     store: {
       type: 'confirm',
-      label: 'Install vuex?',
+      label: 'Install vuex? (state management)',
       default: false,
     },
     color_scheme: {
