@@ -66,10 +66,12 @@ module.exports = {
     router: {
       type: 'confirm',
       label: 'Install vue-router?',
+      default: false,
     },
     store: {
       type: 'confirm',
       label: 'Install vuex?',
+      default: false,
     },
     color_scheme: {
       type: 'list',
