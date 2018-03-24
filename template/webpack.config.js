@@ -176,23 +176,15 @@ module.exports = env => {
   if (!env) {
     env = {action: 'build'};
   }
-  const action = env.action || 'build';
 
-  if (!env.android && !env.ios) {
-    if (androidAvailable) {
-      configs.push(config('android', action));
-    }
-    if (iosAvailable) {
-      configs.push(config('ios', action));
-    }
+  const action = env.action || 'build';
+  const noEnv = (!env.android && !env.ios);
+
+  if (noEnv && androidAvailable || env.android) {
+    configs.push(config('android', action));
   }
-  else {
-    if (env.android && androidAvailable) {
-      configs.push(config('android', action));
-    }
-    if (env.ios && iosAvailable) {
-      configs.push(config('ios', action));
-    }
+  if (noEnv && iosAvailable || env.ios) {
+    configs.push(config('ios', action));
   }
 
   if (!configs.length) {
