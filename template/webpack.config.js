@@ -106,7 +106,10 @@ const config = (platform, launchArgs) => {
       // Optimize CSS output
       new OptimizeCssAssetsPlugin({
         cssProcessor: require('cssnano'),
-        cssProcessorOptions: {discardComments: {removeAll: true}},
+        cssProcessorOptions: {
+          discardComments: { removeAll: true },
+          normalizeUrl: false
+        },
         canPrint: false,
       }),
 
