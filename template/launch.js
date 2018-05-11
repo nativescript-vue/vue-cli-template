@@ -34,9 +34,18 @@ if (action !== 'run' && !platform) {
   let tnsAndroidProcess = exec(`tns --path dist ${action} android`);
   let tnsiOSProcess = exec(`tns --path dist ${action} ios`);
   tnsAndroidProcess.stdout.pipe(process.stdout);
+  tnsAndroidProcess.on('exit', function (code) {
+    if(code != 0) process.exit(code)
+  });
   tnsiOSProcess.stdout.pipe(process.stdout);
+  tnsiOSProcess.on('exit', function (code) {
+    if(code != 0) process.exit(code)
+  });
 }
 else {
   let tnsProcess = exec(`tns --path dist ${action} ${platform || ''}`);
   tnsProcess.stdout.pipe(process.stdout);
+  tnsProcess.on('exit', function (code) {
+    if(code != 0) process.exit(code)
+  });
 }
