@@ -14,6 +14,9 @@ require('./prepare')();
 // Generate platform-specific webpack configuration
 const config = (platform, launchArgs) => {
 
+  const command = launchArgs.split(' ')[0];
+  const isDevelopment = command === 'debug'
+
   winston.info(`Bundling application for ${platform}...`);
 
   // CSS / SCSS style extraction loaders
@@ -37,6 +40,46 @@ const config = (platform, launchArgs) => {
       'sass-loader',
     ],
   });
+
+  const plugins = [
+
+      // Extract CSS to separate file
+      new ExtractTextPlugin({filename: `app.${platform}.css`}),
+
+      // Optimize CSS output
+      new OptimizeCssAssetsPlugin({
+        cssProcessor: require('cssnano'),
+        cssProcessorOptions: {
+          discardComments: { removeAll: true },
+          normalizeUrl: false
+        },
+        canPrint: false,
+      }),
+
+      // Copy src/assets/**/* to dist/
+      new CopyWebpackPlugin([
+        {from: 'assets', context: 'src'},
+      ]),
+
+      // Execute post-build scripts with specific arguments
+      new WebpackSynchronizableShellPlugin({
+        onBuildEnd: {
+          scripts: [
+            ... launchArgs ? [`node launch.js ${launchArgs}`] : [],
+          ],
+          blocking: false,
+        },
+      }),
+
+  ];
+
+  if (!isDevelopment) {
+    // Minify JavaScript code
+    plugins.push(new webpack.optimize.UglifyJsPlugin({
+        compress: {warnings: false},
+        output: {comments: false},
+    }))
+  }
 
   return {
 
@@ -98,43 +141,7 @@ const config = (platform, launchArgs) => {
 
     externals: NativeScriptVueExternals,
 
-    plugins: [
-
-      // Extract CSS to separate file
-      new ExtractTextPlugin({filename: `app.${platform}.css`}),
-
-      // Optimize CSS output
-      new OptimizeCssAssetsPlugin({
-        cssProcessor: require('cssnano'),
-        cssProcessorOptions: {
-          discardComments: { removeAll: true },
-          normalizeUrl: false
-        },
-        canPrint: false,
-      }),
-
-      // Minify JavaScript code
-      new webpack.optimize.UglifyJsPlugin({
-        compress: {warnings: false},
-        output: {comments: false},
-      }),
-
-      // Copy src/assets/**/* to dist/
-      new CopyWebpackPlugin([
-        {from: 'assets', context: 'src'},
-      ]),
-
-      // Execute post-build scripts with specific arguments
-      new WebpackSynchronizableShellPlugin({
-        onBuildEnd: {
-          scripts: [
-            ... launchArgs ? [`node launch.js ${launchArgs}`] : [],
-          ],
-          blocking: false,
-        },
-      }),
-
-    ],
+    plugins: plugins,
 
     stats: 'errors-only',
 
