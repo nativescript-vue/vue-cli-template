@@ -80,6 +80,9 @@ const config = (platform, launchArgs) => {
     },
 
     resolve: {
+      alias: {
+        '@': path.resolve(__dirname, './src'),
+      },
       modules: [
         'node_modules/tns-core-modules',
         'node_modules',
