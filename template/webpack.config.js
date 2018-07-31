@@ -15,7 +15,7 @@ require('./prepare')();
 const config = (platform, launchArgs) => {
 
   const command = launchArgs.split(' ')[0];
-  const isDebug = command === 'debug'
+  const isDebug = command !== 'build';
 
   winston.info(`Bundling application for ${platform}...`);
 
