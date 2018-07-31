@@ -15,7 +15,7 @@ require('./prepare')();
 const config = (platform, launchArgs) => {
 
   const command = launchArgs.split(' ')[0];
-  const isDevelopment = command === 'debug'
+  const isDebug = command === 'debug'
 
   winston.info(`Bundling application for ${platform}...`);
 
@@ -73,7 +73,7 @@ const config = (platform, launchArgs) => {
 
   ];
 
-  if (!isDevelopment) {
+  if (!isDebug) {
     // Minify JavaScript code
     plugins.push(new webpack.optimize.UglifyJsPlugin({
         compress: {warnings: false},
