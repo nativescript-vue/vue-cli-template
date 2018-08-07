@@ -160,7 +160,7 @@ module.exports = env => {
   const action = (!env || !env.tnsAction) ? 'build' : env.tnsAction;
 
   if (!env || (!env.android && !env.ios)) {
-    return [config('android'), config('ios', action)];
+    return [config('android', action), config('ios', action)];
   }
 
   return env.android && config('android', `${action} android`)
