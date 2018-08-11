@@ -23,8 +23,9 @@ new Vue({
 
   {{#router}}
   router,
+  template: `<Frame><router-view/></Frame>`,
   {{else}}
-  render: h => h({{#store}}Counter{{else}}HelloWorld{{/store}}),
+  render: h => h('frame',[h({{#store}}Counter{{else}}HelloWorld{{/store}})]),
   {{/router}}
 
   {{#store}}
