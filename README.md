@@ -1,3 +1,6 @@
+> **TIP:** Try out the [next](https://github.com/nativescript-vue/vue-cli-template/tree/next) branch
+> it has been simplified and should work much better than the master version
+
 # vue-cli-template
 
 > NativeScript-Vue application template for quick prototyping with vue-cli (2.x).
