@@ -1,4 +1,4 @@
-# nativescript-vue-cli-template
+# vue-cli-template
 
 > NativeScript-Vue application template for quick prototyping with vue-cli (2.x).
 
