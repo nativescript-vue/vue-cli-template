@@ -12,7 +12,7 @@ const NativeScriptVueTarget = require('nativescript-vue-target');
 require('./prepare')();
 
 // Generate platform-specific webpack configuration
-const config = (platform, launchArgs) => {
+const config = (platform, launchArgs = '') => {
 
   const command = launchArgs.split(' ')[0];
   const isDebug = command !== 'build';
