@@ -42,7 +42,7 @@ module.exports = env => {
 
             // You can provide the following flags when running 'tns run android|ios'
             snapshot, // --env.snapshot
-            uglify, // --env.uglify
+            production, // --env.production
             report, // --env.report
     } = env;
 
@@ -54,7 +54,7 @@ module.exports = env => {
     console.log(`Bundling application for entryPath ${entryPath}...`);
 
     const config = {
-        mode: uglify ? "production" : "development",
+        mode: production ? "production" : "development",
         context: appFullPath,
         watchOptions: {
             ignored: [
@@ -120,7 +120,7 @@ module.exports = env => {
                     },
                 },
             },
-            minimize: Boolean(uglify),
+            minimize: Boolean(production),
             minimizer: [
                 new UglifyJsPlugin({
                     uglifyOptions: {
@@ -192,6 +192,7 @@ module.exports = env => {
             // Define useful constants like TNS_WEBPACK
             new webpack.DefinePlugin({
                 "global.TNS_WEBPACK": "true",
+                "DEBUG_MODE": !production
             }),
             // Remove all files from the out dir.
             new CleanWebpackPlugin([`${dist}/**/*`]),

@@ -11,7 +11,7 @@ const store = new Vuex.Store({
   modules: {
     counter,
   },
-  strict: debug,
+  strict: DEBUG_MODE,
 });
 
 Vue.prototype.$store = store;
