@@ -46,6 +46,8 @@ module.exports = env => {
             report, // --env.report
     } = env;
 
+    const mode = production ? "production" : "development"
+
     const appFullPath = resolve(projectRoot, appPath);
     const appResourcesFullPath = resolve(projectRoot, appResourcesPath);
 
@@ -54,7 +56,7 @@ module.exports = env => {
     console.log(`Bundling application for entryPath ${entryPath}...`);
 
     const config = {
-        mode: production ? "production" : "development",
+        mode: mode,
         context: appFullPath,
         watchOptions: {
             ignored: [
@@ -192,7 +194,7 @@ module.exports = env => {
             // Define useful constants like TNS_WEBPACK
             new webpack.DefinePlugin({
                 "global.TNS_WEBPACK": "true",
-                "TNS_ENV": production ? "production" : "debug"
+                "TNS_ENV": mode
             }),
             // Remove all files from the out dir.
             new CleanWebpackPlugin([`${dist}/**/*`]),
@@ -204,7 +206,9 @@ module.exports = env => {
             }]),
             // Copy assets to out dir. Add your own globs as needed.
             new CopyWebpackPlugin([
-                { from: "**/*", context: "assets" },
+                { from: "fonts/**" },
+                { from: "**/*.+(jpg|png)" },
+                { from: "assets/**/*" },
             ], { ignore: [`${relative(appPath, appResourcesFullPath)}/**`] }),
             // Generate a bundle starter script and activate it in package.json
             new nsWebpack.GenerateBundleStarterPlugin([
