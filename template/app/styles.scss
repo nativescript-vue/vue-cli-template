@@ -1,6 +1,9 @@
 // NativeScript core theme
 // @see https://docs.nativescript.org/ui/theme
-@import '~nativescript-theme-core/scss/skins/{{ color_scheme }}/index';
+@import '~nativescript-theme-core/scss/{{ color_scheme }}';
+
+// Override variables here
+
 @import '~nativescript-theme-core/scss/index';
 
 // Global SCSS styling
