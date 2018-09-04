@@ -176,6 +176,10 @@ module.exports = env => {
                     ],
                 },
                 {
+                    test: /\.js$/,
+                    loader: 'babel-loader',
+                },
+                {
                     test: /\.vue$/,
                     loader: "vue-loader",
                     options: {

@@ -14,6 +14,12 @@
     }
   },
   "dependencies": {
+    "babel-core": "6",
+    "babel-eslint": "^8.1.2",
+    "babel-loader": "7.1.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
     {{#router}}
     "vue-router": "^3.0.1",
     {{/router}}
