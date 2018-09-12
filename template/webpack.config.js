@@ -44,6 +44,7 @@ module.exports = env => {
             snapshot, // --env.snapshot
             production, // --env.production
             report, // --env.report
+            hmr, // --env.hmr
     } = env;
 
     const mode = production ? "production" : "development"
@@ -89,6 +90,7 @@ module.exports = env => {
             alias: {
                 '~': appFullPath,
                 '@': appFullPath,
+                'vue': 'nativescript-vue'
             },
             // don't resolve symlinks to symlinked modules
             symlinks: false,
@@ -160,9 +162,18 @@ module.exports = env => {
                         },
                     ].filter(loader => Boolean(loader)),
                 },
+
+                // TODO: Removed the rule once https://github.com/vuejs/vue-hot-reload-api/pull/70 is accepted
+                {
+                    test: /vue-hot-reload-api\/dist\/index\.js$/,
+                    use: "../vue-hot-reload-api-patcher"
+                },
+
                 {
                     test: /\.css$/,
                     use: [
+                        'nativescript-dev-webpack/style-hot-loader',
+                        'css-hot-loader',
                         MiniCssExtractPlugin.loader,
                         { loader: "css-loader", options: { minimize: false, url: false } },
                     ],
@@ -170,6 +181,8 @@ module.exports = env => {
                 {
                     test: /\.scss$/,
                     use: [
+                        'nativescript-dev-webpack/style-hot-loader',
+                        'css-hot-loader',
                         MiniCssExtractPlugin.loader,
                         { loader: "css-loader", options: { minimize: false, url: false } },
                         "sass-loader",
@@ -251,6 +264,10 @@ module.exports = env => {
             projectRoot,
             webpackConfig: config,
         }));
+    }
+
+    if (hmr) {
+        config.plugins.push(new webpack.HotModuleReplacementPlugin());
     }
 
     return config;
