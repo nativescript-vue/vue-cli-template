@@ -21,7 +21,7 @@
     "vuex": "^3.0.1",
     {{/store}}
     "nativescript-theme-core": "^1.0.4",
-    "nativescript-vue": "^2.0.0-alpha.2",
+    "nativescript-vue": "^2.0.0-alpha.3",
     "tns-core-modules": "^4.2.0"
   },
   "devDependencies": {
@@ -38,7 +38,7 @@
     "lazy": "1.0.11",
     "mini-css-extract-plugin": "^0.4.1",
     "nativescript-dev-webpack": "^0.17.0-2018-09-12-01",
-    "nativescript-vue-template-compiler": "^1.3.1",
+    "nativescript-vue-template-compiler": "^2.0.0-alpha.3",
     "nativescript-worker-loader": "~0.9.0",
     "node-sass": "^4.9.2",
     "sass-loader": "^7.1.0",
