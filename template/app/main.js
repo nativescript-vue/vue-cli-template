@@ -16,15 +16,16 @@ import store from './store';
 
 import './styles.scss';
 
-// Uncomment the following to see NativeScript-Vue output logs
-//Vue.config.silent = false;
+// Prints Vue logs when --env.production is *NOT* set while building
+Vue.config.silent = (TNS_ENV === 'production');
 
 new Vue({
 
   {{#router}}
   router,
+  template: `<Frame><router-view/></Frame>`,
   {{else}}
-  render: h => h({{#store}}Counter{{else}}HelloWorld{{/store}}),
+  render: h => h('frame',[h({{#store}}Counter{{else}}HelloWorld{{/store}})]),
   {{/router}}
 
   {{#store}}
