@@ -1,5 +1,4 @@
-> **TIP:** Try out the [next](https://github.com/nativescript-vue/vue-cli-template/tree/next) branch
-> it has been simplified and should work much better than the master version
+> **Note:** This is a new version of the template, if you are looking for the old template, it is available on the [legacy branch](https://github.com/nativescript-vue/vue-cli-template/tree/legacy).
 
 # vue-cli-template
 
@@ -12,7 +11,7 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli/tree/m
 ``` bash
 # Scaffold project
 npm install -g @vue/cli @vue/cli-init
-vue init nativescript-vue/vue-cli-template#next <project-name>
+vue init nativescript-vue/vue-cli-template <project-name>
 cd <project-name>
 
 # Install dependencies
@@ -23,6 +22,13 @@ tns build <platform> --bundle
 
 # Build, watch for changes and run the application
 tns run <platform> --bundle
+
+# Build, watch for changes and run the application with
+# HMR enabled (Hot Module Replacement)
+# ---
+# make sure you have the latest nativescript cli installed for this to work
+# npm install -g nativescript@next
+tns run <platform> --bundle --hmr
 
 # Clean the NativeScript application instance
 tns platform remove <platform>
