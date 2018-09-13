@@ -1,5 +1,5 @@
-> **TIP:** Try out the [next](https://github.com/nativescript-vue/vue-cli-template/tree/next) branch
-> it has been simplified and should work much better than the master version
+> **TIP:** Try out the [master](https://github.com/nativescript-vue/vue-cli-template) branch
+> it has been simplified and should work much better than the legacy version
 
 # vue-cli-template
 
@@ -12,7 +12,7 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli/tree/m
 ``` bash
 # Scaffold project
 npm install -g vue-cli
-vue init nativescript-vue/vue-cli-template <project-name>
+vue init nativescript-vue/vue-cli-template#legacy <project-name>
 cd <project-name>
 
 # Install dependencies
