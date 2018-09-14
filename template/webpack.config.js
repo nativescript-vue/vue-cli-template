@@ -165,7 +165,7 @@ module.exports = env => {
 
                 // TODO: Removed the rule once https://github.com/vuejs/vue-hot-reload-api/pull/70 is accepted
                 {
-                    test: /vue-hot-reload-api\/dist\/index\.js$/,
+                    test: resolve(__dirname, 'node_modules/vue-hot-reload-api/dist/index.js'),
                     use: "../vue-hot-reload-api-patcher"
                 },
 
