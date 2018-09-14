@@ -26,6 +26,12 @@ const validateVersion = version => {
 
 module.exports = {
   prompts: {
+    update: {
+      type: 'confirm',
+      label: 'You are about to update the current project, are you sure?',
+      default: false,
+      when: 'inPlace',
+    },
     name: {
       type: 'string',
       required: true,
