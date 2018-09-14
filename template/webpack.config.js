@@ -204,7 +204,7 @@ module.exports = env => {
         plugins: [
             // ... Vue Loader plugin omitted
             new MiniCssExtractPlugin({
-                filename: `app.${platform}.css`,
+                filename: `app.css`,
             }),
             // make sure to include the plugin!
             new VueLoaderPlugin(),

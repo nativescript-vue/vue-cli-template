@@ -30,17 +30,20 @@ module.exports = {
       type: 'string',
       required: true,
       label: 'Project name',
+      when: '!inPlace',
     },
     description: {
       type: 'string',
       label: 'Project description',
       default: 'A native application built with NativeScript-Vue',
+      when: '!inPlace',
     },
     app_name: {
       type: 'string',
       required: true,
       label: 'Application name',
       default: 'NativeScript-Vue Application',
+      when: '!inPlace',
     },
     app_id: {
       type: 'string',
@@ -48,6 +51,7 @@ module.exports = {
       label: 'Unique application identifier',
       default: 'org.nativescript.application',
       validate: validateAppId,
+      when: '!inPlace',
     },
     version: {
       type: 'string',
@@ -55,25 +59,30 @@ module.exports = {
       label: 'Project version',
       default: '1.0.0',
       validate: validateVersion,
+      when: '!inPlace',
     },
     author: {
       type: 'string',
       label: 'Author',
+      when: '!inPlace',
     },
     license: {
       type: 'string',
       label: 'License',
       default: 'MIT',
+      when: '!inPlace',
     },
     router: {
       type: 'confirm',
       label: 'Install vue-router? (experimental)',
       default: false,
+      when: '!inPlace',
     },
     store: {
       type: 'confirm',
       label: 'Install vuex? (state management)',
       default: false,
+      when: '!inPlace',
     },
     color_scheme: {
       type: 'list',
@@ -94,6 +103,7 @@ module.exports = {
         'sky',
       ],
       default: 'light',
+      when: '!inPlace',
     },
   },
   helpers: {
@@ -103,9 +113,36 @@ module.exports = {
     },
   },
   filters: {
-    'app/router/**/*': 'router',
-    'app/components/Home.vue': 'router',
-    'app/store/**/*': 'store',
-    'app/components/Counter.vue': 'store',
+    'app/**/*': '!inPlace',
+    'package.json': '!inPlace',
+    'README.md': '!inPlace',
+    '.gitignore': '!inPlace',
+
+    'app/router/**/*': '!inPlace && router',
+    'app/components/Home.vue': '!inPlace && router',
+    'app/store/**/*': '!inPlace && store',
+    'app/components/Counter.vue': '!inPlace && store',
   },
+  complete(data, {logger, chalk}) {
+    if (data.inPlace) {
+      logger.log('')
+      logger.log(chalk.green(`Successfully updated application.`))
+      logger.log('')
+      logger.log(`One last step is required to be fully updated`)
+      logger.log(`You will need to update your ${chalk.underline('package.json')}`)
+      logger.log(`To match the dependencies from the template`)
+      logger.log(chalk.yellow(`https://github.com/nativescript-vue/vue-cli-template/blob/master/template/package.json`))
+      logger.log('')
+      logger.log(chalk.grey(`-------------------------------------------`))
+      logger.log(`The reason we don't do this automatically, is`)
+      logger.log(`that you would loose any modifications you've`)
+      logger.log(`made to ${chalk.underline('package.json')}`)
+    } else {
+      logger.log(`cd ${chalk.yellow(data.destDirName)}`)
+      logger.log(`npm install`)
+      logger.log(`tns run android --bundle`)
+      logger.log(chalk.grey(`# or`))
+      logger.log(`tns run ios --bundle`)
+    }
+  }
 }
