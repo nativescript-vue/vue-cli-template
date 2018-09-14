@@ -12,7 +12,7 @@
         <Label :text="message" alignSelf="baseline" class="h2"/>
         <Button @tap="increment" text="+" class="btn btn-outline"/>
       </FlexboxLayout>
-      <Image v-if="surprise" src="~/images/NativeScript-Vue.png"/>
+      <Image v-if="surprise" src="~/assets/images/NativeScript-Vue.png"/>
     </StackLayout>
 
   </Page>
