@@ -13,15 +13,15 @@
       "version": "4.2.0"
     }
   },
-  "dependencies": {
-    {{#router}}
-    "vue-router": "^3.0.1",
-    {{/router}}
-    {{#store}}
-    "vuex": "^3.0.1",
-    {{/store}}
+  "dependencies": { {{#store}}
+    "vuex": "^3.0.1",{{/store}}{{#devtools}}
+    "@vue/devtools": "5.0.0-beta.3",
+    "nativescript-socket.io": "^0.9.0",
+    "nativescript-vue-devtools": "^1.0.0",
+    "nativescript-toast": "^1.4.6",{{/devtools}}{{#if_eq preset "SideDrawer"}}
+    "nativescript-ui-sidedrawer": "^4.3.0",{{/if_eq}}
     "nativescript-theme-core": "^1.0.4",
-    "nativescript-vue": "^2.0.0-alpha.3",
+    "nativescript-vue": "^2.0.0-rc.0",
     "tns-core-modules": "^4.2.0"
   },
   "devDependencies": {
@@ -37,7 +37,7 @@
     "css-loader": "^1.0.0",
     "lazy": "1.0.11",
     "mini-css-extract-plugin": "^0.4.1",
-    "nativescript-dev-webpack": "0.17.0-2018-09-15-02",
+    "nativescript-dev-webpack": "^0.17.0-2018-09-12-01",
     "nativescript-vue-template-compiler": "^2.0.0-alpha.3",
     "nativescript-worker-loader": "~0.9.0",
     "node-sass": "^4.9.2",
