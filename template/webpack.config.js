@@ -162,13 +162,6 @@ module.exports = env => {
                         },
                     ].filter(loader => Boolean(loader)),
                 },
-
-                // TODO: Removed the rule once https://github.com/vuejs/vue-hot-reload-api/pull/70 is accepted
-                {
-                    test: resolve(__dirname, 'node_modules/vue-hot-reload-api/dist/index.js'),
-                    use: "../vue-hot-reload-api-patcher"
-                },
-
                 {
                     test: /\.css$/,
                     use: [
