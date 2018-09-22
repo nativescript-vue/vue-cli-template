@@ -21,7 +21,7 @@
     "nativescript-toast": "^1.4.6",{{/devtools}}{{#if_eq preset "SideDrawer"}}
     "nativescript-ui-sidedrawer": "^4.3.0",{{/if_eq}}
     "nativescript-theme-core": "^1.0.4",
-    "nativescript-vue": "^2.0.0-rc.0",
+    "nativescript-vue": "^2.0.0",
     "tns-core-modules": "^4.2.0"
   },
   "devDependencies": {
