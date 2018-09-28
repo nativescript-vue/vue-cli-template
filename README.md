@@ -28,7 +28,7 @@ tns run <platform> --bundle
 # ---
 # make sure you have the latest nativescript cli installed for this to work
 # npm install -g nativescript@next
-tns run <platform> --bundle --hmr
+tns run <platform> --hmr
 
 # Clean the NativeScript application instance
 tns platform remove <platform>

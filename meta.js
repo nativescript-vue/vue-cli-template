@@ -78,16 +78,33 @@ module.exports = {
       default: 'MIT',
       when: '!inPlace',
     },
-    router: {
-      type: 'confirm',
-      label: 'Install vue-router? (experimental)',
-      default: false,
+    preset: {
+      type: 'list',
+      label: 'Select a preset (more coming soon)',
+      choices: [
+        'Simple',
+        'TabView',
+        'SideDrawer',
+      ],
+      default: 'Simple',
       when: '!inPlace',
     },
+    // router: {
+    //   type: 'confirm',
+    //   label: 'Install vue-router? (experimental)',
+    //   default: false,
+    //   when: '!inPlace',
+    // },
     store: {
       type: 'confirm',
       label: 'Install vuex? (state management)',
       default: false,
+      when: '!inPlace',
+    },
+    devtools: {
+      type: 'confirm',
+      label: 'Install vue-devtools?',
+      default: true,
       when: '!inPlace',
     },
     color_scheme: {

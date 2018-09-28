@@ -3,7 +3,6 @@ const { relative, resolve, sep } = require("path");
 const webpack = require("webpack");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const TerserPlugin = require('terser-webpack-plugin');
 
@@ -47,6 +46,10 @@ module.exports = env => {
             hmr, // --env.hmr
     } = env;
 
+    const externals = (env.externals || []).map((e) => { // --env.externals
+        return new RegExp(e + ".*");
+    });
+
     const mode = production ? "production" : "development"
 
     const appFullPath = resolve(projectRoot, appPath);
@@ -59,6 +62,7 @@ module.exports = env => {
     const config = {
         mode: mode,
         context: appFullPath,
+        externals,
         watchOptions: {
             ignored: [
                 appResourcesFullPath,
@@ -163,19 +167,11 @@ module.exports = env => {
                         },
                     ].filter(loader => Boolean(loader)),
                 },
-
-                // TODO: Removed the rule once https://github.com/vuejs/vue-hot-reload-api/pull/70 is accepted
-                {
-                    test: /vue-hot-reload-api\/dist\/index\.js$/,
-                    use: "../vue-hot-reload-api-patcher"
-                },
-
                 {
                     test: /\.css$/,
                     use: [
                         'nativescript-dev-webpack/style-hot-loader',
-                        'css-hot-loader',
-                        MiniCssExtractPlugin.loader,
+                        'nativescript-dev-webpack/apply-css-loader.js',
                         { loader: "css-loader", options: { minimize: false, url: false } },
                     ],
                 },
@@ -183,8 +179,7 @@ module.exports = env => {
                     test: /\.scss$/,
                     use: [
                         'nativescript-dev-webpack/style-hot-loader',
-                        'css-hot-loader',
-                        MiniCssExtractPlugin.loader,
+                        'nativescript-dev-webpack/apply-css-loader.js',
                         { loader: "css-loader", options: { minimize: false, url: false } },
                         "sass-loader",
                     ],
@@ -204,9 +199,6 @@ module.exports = env => {
         },
         plugins: [
             // ... Vue Loader plugin omitted
-            new MiniCssExtractPlugin({
-                filename: `app.css`,
-            }),
             // make sure to include the plugin!
             new VueLoaderPlugin(),
             // Define useful constants like TNS_WEBPACK
