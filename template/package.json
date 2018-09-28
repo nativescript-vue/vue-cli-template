@@ -40,7 +40,7 @@
     "nativescript-worker-loader": "~0.9.0",
     "node-sass": "^4.9.2",
     "sass-loader": "^7.1.0",
-    "uglifyjs-webpack-plugin": "~1.2.7",
+    "terser-webpack-plugin": "^1.1.0",
     "vue-loader": "^15.2.6",
     "webpack": "^4.16.4",
     "webpack-bundle-analyzer": "~2.13.1",
