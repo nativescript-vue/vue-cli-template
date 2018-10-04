@@ -14,17 +14,17 @@
     }
   },
   "dependencies": { {{#store}}
-    "vuex": "^3.0.1",{{/store}}{{#if_eq preset "SideDrawer"}}
+    "vuex": "^3.0.1",{{/store}}{{#devtools}}
+    "@vue/devtools": "5.0.0-beta.3",
+    "nativescript-socket.io": "^0.9.0",
+    "nativescript-vue-devtools": "^1.0.0",
+    "nativescript-toast": "^1.4.6",{{/devtools}}{{#if_eq preset "SideDrawer"}}
     "nativescript-ui-sidedrawer": "^4.3.0",{{/if_eq}}
     "nativescript-theme-core": "^1.0.4",
     "nativescript-vue": "^2.0.0",
     "tns-core-modules": "^4.2.0"
   },
-  "devDependencies": { {{#devtools}}
-    "@vue/devtools": "5.0.0-beta.3",
-    "nativescript-socket.io": "^0.9.0",
-    "nativescript-vue-devtools": "^1.0.0",
-    "nativescript-toast": "^1.4.6",{{/devtools}}
+  "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "babel-loader": "^8.0.2",
