@@ -50,10 +50,10 @@ To minify code, and prevent Vue logs -
 
 ```bash
 # Build for production
-tns build <platform> --bundle --env.production
+tns build <platform> --bundle --production
 
 # Run as production
-tns run <platform> --bundle --env.production
+tns run <platform> --bundle --production
 ```
 
 ## Using NativeScript plugins
