@@ -144,6 +144,7 @@ module.exports = env => {
                             sequences: platform !== "android",
                         },
                         safari10: platform === "ios",
+                        keep_fnames: true,
                     },
                 }),
             ],
