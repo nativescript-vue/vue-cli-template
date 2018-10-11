@@ -1,6 +1,6 @@
 {{#if_eq preset "Simple"}}<template>
-    <Page>
-        <ActionBar title="Welcome to NativeScript-Vue!"/>
+    <Page class="page">
+        <ActionBar title="Welcome to NativeScript-Vue!" class="action-bar"/>
         <GridLayout colums="*" rows="*">
             <Label class="message" :text="msg" col="0" row="0"/>
         </GridLayout>
@@ -18,11 +18,6 @@
 </script>
 
 <style scoped>
-    ActionBar {
-        background-color: #53ba82;
-        color: #ffffff;
-    }
-
     .message {
         vertical-align: center;
         text-align: center;
