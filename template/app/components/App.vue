@@ -1,7 +1,7 @@
 {{#if_eq preset "Simple"}}<template>
     <Page>
         <ActionBar title="Welcome to NativeScript-Vue!"/>
-        <GridLayout colums="*" rows="*">
+        <GridLayout columns="*" rows="*">
             <Label class="message" :text="msg" col="0" row="0"/>
         </GridLayout>
     </Page>
@@ -37,17 +37,17 @@
                  android:selectedTabTextColor="#ffffff"
                  androidSelectedTabHighlightColor="#ffffff">
             <TabViewItem title="Tab 1">
-                <GridLayout colums="*" rows="*">
+                <GridLayout columns="*" rows="*">
                     <Label class="message" :text="msg" col="0" row="0"/>
                 </GridLayout>
             </TabViewItem>
             <TabViewItem title="Tab 2">
-                <GridLayout colums="*" rows="*">
+                <GridLayout columns="*" rows="*">
                     <Label class="message" text="Tab 2 Content" col="0" row="0"/>
                 </GridLayout>
             </TabViewItem>
             <TabViewItem title="Tab 3">
-                <GridLayout colums="*" rows="*">
+                <GridLayout columns="*" rows="*">
                     <Label class="message" text="Tab 3 Content" col="0" row="0"/>
                 </GridLayout>
             </TabViewItem>
@@ -95,7 +95,7 @@
                 <Label class="drawer-item" text="Item 3"/>
             </StackLayout>
 
-            <GridLayout ~mainContent colums="*" rows="*">
+            <GridLayout ~mainContent columns="*" rows="*">
                 <Label class="message" :text="msg" col="0" row="0"/>
             </GridLayout>
         </RadSideDrawer>
