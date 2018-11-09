@@ -111,6 +111,7 @@ module.exports = {
       type: 'list',
       label: 'Color scheme',
       choices: [
+        'none',
         'aqua',
         'blue',
         'brown',
@@ -125,7 +126,7 @@ module.exports = {
         'ruby',
         'sky',
       ],
-      default: 'light',
+      default: 'none',
       when: '!inPlace',
     },
   },
@@ -163,9 +164,12 @@ module.exports = {
     } else {
       logger.log(`cd ${chalk.yellow(data.destDirName)}`)
       logger.log(`npm install`)
-      logger.log(`tns run android --bundle`)
+      logger.log(`tns run android ${chalk.green('--bundle')}`)
       logger.log(chalk.grey(`# or`))
-      logger.log(`tns run ios --bundle`)
+      logger.log(`tns run ios ${chalk.green('--bundle')}`)
+      logger.log(chalk.grey(`--`))
+      logger.log(`You may also try the new HMR mode by replacing ${chalk.green('--bundle')}`)
+      logger.log(`with ${chalk.green('--hmr')}, but note that this is a beta feature.`)
     }
   }
 }

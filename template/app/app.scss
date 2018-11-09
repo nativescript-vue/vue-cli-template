@@ -1,4 +1,4 @@
-// NativeScript core theme
+{{#unless_eq color_scheme "none"}}// NativeScript core theme
 // @see https://docs.nativescript.org/ui/theme
 @import '~nativescript-theme-core/scss/{{ color_scheme }}';
 
@@ -6,5 +6,5 @@
 
 @import '~nativescript-theme-core/scss/index';
 
-// Global SCSS styling
+{{/unless_eq}}// Global SCSS styling
 // @see https://docs.nativescript.org/ui/styling
