@@ -17,6 +17,9 @@ cd <project-name>
 # Install dependencies
 npm install
 
+# Preview
+tns preview --bundle
+
 # Build
 tns build <platform> --bundle
 
