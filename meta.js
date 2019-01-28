@@ -78,6 +78,16 @@ module.exports = {
       default: 'MIT',
       when: '!inPlace',
     },
+    lang: {
+      type: 'list',
+      label: 'Select the programming language',
+      choices: [
+        'javascript',
+        'typescript',
+      ],
+      default: 'javascript',
+      when: '!inPlace',
+    },
     preset: {
       type: 'list',
       label: 'Select a preset (more coming soon)',
@@ -137,11 +147,15 @@ module.exports = {
     },
   },
   filters: {
-    'app/**/*': '!inPlace',
+    'app/**/!(main.ts|main.js)': '!inPlace',
+    'app/main.js': '!inPlace && lang == "javascript"',
+    'app/main.ts': '!inPlace && lang == "typescript"',
     'package.json': '!inPlace',
     'README.md': '!inPlace',
     '.gitignore': '!inPlace',
 
+    'app/tsconfig.js': '!inPlace && lang == "typescript"',
+    'app/types/**/*': '!inPlace && lang == "typescript"',
     'app/router/**/*': '!inPlace && router',
     'app/components/Home.vue': '!inPlace && router',
     'app/store/**/*': '!inPlace && store',

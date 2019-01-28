@@ -56,7 +56,12 @@ module.exports = env => {
     const appResourcesFullPath = resolve(projectRoot, appResourcesPath);
 
     const entryModule = nsWebpack.getEntryModule(appFullPath);
+    {{#if_eq lang "typescript" }}
+    const entryPath = `.${sep}${entryModule}.ts`;
+    {{/if_eq}}
+    {{#if_eq lang "javascript" }}
     const entryPath = `.${sep}${entryModule}.js`;
+    {{/if_eq}}
     console.log(`Bundling application for entryPath ${entryPath}...`);
 
     const config = {
@@ -83,7 +88,12 @@ module.exports = env => {
             globalObject: "global",
         },
         resolve: {
+            {{#if_eq lang "typescript" }}
+            extensions: [".vue", ".js", ".ts", ".scss", ".css"],
+            {{/if_eq}}
+            {{#if_eq lang "javascript" }}
             extensions: [".vue", ".js", ".scss", ".css"],
+            {{/if_eq}}
             // Resolve {N} system modules from tns-core-modules
             modules: [
                 resolve(__dirname, "node_modules/tns-core-modules"),
@@ -94,7 +104,7 @@ module.exports = env => {
             alias: {
                 '~': appFullPath,
                 '@': appFullPath,
-                'vue': 'nativescript-vue'
+                'vue$': 'nativescript-vue'
             },
             // don't resolve symlinks to symlinked modules
             symlinks: false,
@@ -185,6 +195,17 @@ module.exports = env => {
                         "sass-loader",
                     ],
                 },
+                {{#if_eq lang "typescript" }}
+                {
+                    test: /\.ts$/,
+                    exclude: /node_modules|vue\/src/,
+                    loader: 'ts-loader',
+                    options: {
+                        appendTsSuffixTo: [/\.vue$/],
+                        allowTsInNodeModules: true,
+                    },
+                },
+                {{/if_eq}}
                 {
                     test: /\.js$/,
                     loader: 'babel-loader',

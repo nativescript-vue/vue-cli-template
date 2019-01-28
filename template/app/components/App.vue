@@ -55,7 +55,7 @@
     </Page>
 </template>
 
-<script>
+<script {{#if_eq lang "typescript" }}lang="ts"{{/if_eq}}>
   export default {
     data() {
       return {
