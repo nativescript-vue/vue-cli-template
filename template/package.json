@@ -40,7 +40,10 @@
     "nativescript-worker-loader": "~0.9.0",
     "node-sass": "^4.9.2",
     "sass-loader": "^7.1.0",
-    "terser-webpack-plugin": "^1.1.0",
+    "terser-webpack-plugin": "^1.1.0",{{#if_eq lang "typescript"}}
+    "tns-platform-declarations": "^5.1.2",
+    "typescript": "^3.2.4",
+    "vue": "^2.5.22",{{/if_eq}}
     "vue-loader": "^15.2.6",
     "webpack": "^4.16.4",
     "webpack-bundle-analyzer": "~2.13.1",
