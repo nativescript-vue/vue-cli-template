@@ -1,11 +1,14 @@
 import Vue from 'nativescript-vue';
 import App from './components/App.vue';
+{{#store}}import store from './store';{{/store}}
+
 {{#devtools}}import VueDevtools from 'nativescript-vue-devtools';
 
 if(TNS_ENV !== 'production') {
   Vue.use(VueDevtools);
 }
 {{/devtools}}
+
 // Prints Vue logs when --env.production is *NOT* set while building
 Vue.config.silent = (TNS_ENV === 'production');
 
@@ -17,5 +20,6 @@ Vue.registerElement(
 {{/if_eq}}
 
 new Vue({
+{{#store}}store,{{/store}}
   render: h => h('frame', [h(App)])
 }).$start();

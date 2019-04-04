@@ -158,7 +158,8 @@ module.exports = {
     'app/types/**/*': '!inPlace && lang == "typescript"',
     'app/router/**/*': '!inPlace && router',
     'app/components/Home.vue': '!inPlace && router',
-    'app/store/**/*': '!inPlace && store',
+    'app/store.js': '!inPlace && store && lang == "javascript"',
+    'app/store.ts': '!inPlace && store && lang == "typescript"',
     'app/components/Counter.vue': '!inPlace && store',
   },
   complete(data, {logger, chalk}) {
