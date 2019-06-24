@@ -14,7 +14,7 @@
     }
   },
   "dependencies": { {{#store}}
-    "vuex": "^3.0.1",{{/store}}{{#devtools}}
+    "vuex": "^3.1.1",{{/store}}{{#devtools}}
     "@vue/devtools": "^5.0.6",
     "nativescript-socketio": "^3.2.1",
     "nativescript-vue-devtools": "^1.2.0",
