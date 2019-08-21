@@ -18,10 +18,10 @@ cd <project-name>
 npm install
 
 # Build
-tns build <platform> --bundle
+tns build <platform>
 
 # Build, watch for changes and run the application
-tns run <platform> --bundle
+tns run <platform>
 
 # Build, watch for changes and run the application with
 # HMR enabled (Hot Module Replacement)
@@ -43,17 +43,17 @@ During usual run, project runs with following settings -
 
 ```bash
 # Build, watch for changes and debug the application
-tns debug <platform> --bundle
+tns debug <platform>
 ```
 
 To minify code, and prevent Vue logs -
 
 ```bash
 # Build for production
-tns build <platform> --bundle --env.production
+tns build <platform> --env.production
 
 # Run as production
-tns run <platform> --bundle --env.production
+tns run <platform> --env.production
 ```
 
 ## Using NativeScript plugins

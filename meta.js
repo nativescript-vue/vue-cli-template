@@ -179,9 +179,9 @@ module.exports = {
     } else {
       logger.log(`cd ${chalk.yellow(data.destDirName)}`)
       logger.log(`npm install`)
-      logger.log(`tns run android ${chalk.green('--bundle')}`)
+      logger.log(`tns run android`)
       logger.log(chalk.grey(`# or`))
-      logger.log(`tns run ios ${chalk.green('--bundle')}`)
+      logger.log(`tns run ios`)
       logger.log(chalk.grey(`--`))
       logger.log(`You may also try the new HMR mode by replacing ${chalk.green('--bundle')}`)
       logger.log(`with ${chalk.green('--hmr')}, but note that this is a beta feature.`)
