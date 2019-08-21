@@ -173,18 +173,15 @@ module.exports = {
       logger.log(chalk.yellow(`https://github.com/nativescript-vue/vue-cli-template/blob/master/template/package.json`))
       logger.log('')
       logger.log(chalk.grey(`-------------------------------------------`))
-      logger.log(`The reason we don't do this automatically, is`)
-      logger.log(`that you would loose any modifications you've`)
+      logger.log(`The reason we don't do this automatically is`)
+      logger.log(`that you would lose any modifications you've`)
       logger.log(`made to ${chalk.underline('package.json')}`)
     } else {
       logger.log(`cd ${chalk.yellow(data.destDirName)}`)
       logger.log(`npm install`)
-      logger.log(`tns run android ${chalk.green('--bundle')}`)
+      logger.log(`tns preview`)
       logger.log(chalk.grey(`# or`))
-      logger.log(`tns run ios ${chalk.green('--bundle')}`)
-      logger.log(chalk.grey(`--`))
-      logger.log(`You may also try the new HMR mode by replacing ${chalk.green('--bundle')}`)
-      logger.log(`with ${chalk.green('--hmr')}, but note that this is a beta feature.`)
+      logger.log(`tns run`)
     }
   }
 }

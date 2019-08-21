@@ -18,17 +18,13 @@ cd <project-name>
 npm install
 
 # Build
-tns build <platform> --bundle
+tns build <platform>
+
+# Preview the application on a device
+tns preview
 
 # Build, watch for changes and run the application
-tns run <platform> --bundle
-
-# Build, watch for changes and run the application with
-# HMR enabled (Hot Module Replacement)
-# ---
-# make sure you have the latest nativescript cli installed for this to work
-# npm install -g nativescript@next
-tns run <platform> --hmr
+tns run
 
 # Clean the NativeScript application instance
 tns platform remove <platform>
@@ -43,17 +39,17 @@ During usual run, project runs with following settings -
 
 ```bash
 # Build, watch for changes and debug the application
-tns debug <platform> --bundle
+tns debug <platform>
 ```
 
 To minify code, and prevent Vue logs -
 
 ```bash
 # Build for production
-tns build <platform> --bundle --env.production
+tns build <platform> --env.production
 
 # Run as production
-tns run <platform> --bundle --env.production
+tns run <platform> --env.production
 ```
 
 ## Using NativeScript plugins
