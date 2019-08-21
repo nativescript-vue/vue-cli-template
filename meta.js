@@ -173,8 +173,8 @@ module.exports = {
       logger.log(chalk.yellow(`https://github.com/nativescript-vue/vue-cli-template/blob/master/template/package.json`))
       logger.log('')
       logger.log(chalk.grey(`-------------------------------------------`))
-      logger.log(`The reason we don't do this automatically, is`)
-      logger.log(`that you would loose any modifications you've`)
+      logger.log(`The reason we don't do this automatically is`)
+      logger.log(`that you would lose any modifications you've`)
       logger.log(`made to ${chalk.underline('package.json')}`)
     } else {
       logger.log(`cd ${chalk.yellow(data.destDirName)}`)
