@@ -182,9 +182,6 @@ module.exports = {
       logger.log(`tns run android`)
       logger.log(chalk.grey(`# or`))
       logger.log(`tns run ios`)
-      logger.log(chalk.grey(`--`))
-      logger.log(`You may also try the new HMR mode by replacing ${chalk.green('--bundle')}`)
-      logger.log(`with ${chalk.green('--hmr')}, but note that this is a beta feature.`)
     }
   }
 }

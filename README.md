@@ -23,13 +23,6 @@ tns build <platform>
 # Build, watch for changes and run the application
 tns run <platform>
 
-# Build, watch for changes and run the application with
-# HMR enabled (Hot Module Replacement)
-# ---
-# make sure you have the latest nativescript cli installed for this to work
-# npm install -g nativescript@next
-tns run <platform> --hmr
-
 # Clean the NativeScript application instance
 tns platform remove <platform>
 ```
