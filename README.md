@@ -20,8 +20,11 @@ npm install
 # Build
 tns build <platform>
 
+# Preview the application on a device
+tns preview
+
 # Build, watch for changes and run the application
-tns run <platform>
+tns run
 
 # Clean the NativeScript application instance
 tns platform remove <platform>
