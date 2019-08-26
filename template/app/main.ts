@@ -1,17 +1,16 @@
-import Vue from 'nativescript-vue';
-import App from './components/App.vue';
+import Vue from 'nativescript-vue'
+import App from './components/App'
 
-{{#devtools}}import VueDevtools from 'nativescript-vue-devtools';
+{{#devtools}}import VueDevtools from 'nativescript-vue-devtools'
+{{#store}}import store from './store'{{/store}}
 
 if(TNS_ENV !== 'production') {
-  Vue.use(VueDevtools);
+  Vue.use(VueDevtools)
 }
 {{/devtools}}
 
-{{#store}}import store from './store';{{/store}}
-
 // Prints Vue logs when --env.production is *NOT* set while building
-Vue.config.silent = (TNS_ENV === 'production');
+Vue.config.silent = (TNS_ENV === 'production')
 
 {{#if_eq preset "SideDrawer"}}
 Vue.registerElement(
@@ -21,6 +20,6 @@ Vue.registerElement(
 {{/if_eq}}
 
 new Vue({
-{{#store}}store,{{/store}}
+  {{#store}}store,{{/store}}
   render: h => h('frame', [h(App)])
-}).$start();
+}).$start()
