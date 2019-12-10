@@ -21,7 +21,7 @@
     "nativescript-vue-devtools": "^1.2.0",
     "nativescript-toasty": "^1.3.0",{{/devtools}}{{#if_eq preset "SideDrawer"}}
     "nativescript-ui-sidedrawer": "^7.0.0",{{/if_eq}}{{#unless_eq color_scheme "none"}}
-    "nativescript-theme-core": "^1.0.6",{{/unless_eq}}
+    "@nativescript/theme": "^2.2.1",{{/unless_eq}}
     "nativescript-vue": "^2.4.0",
     "tns-core-modules": "^6.0.0"
   },
@@ -35,6 +35,7 @@
     "node-sass": "^4.9.2",{{#if_eq lang "typescript"}}
     "tns-platform-declarations": "^6.0.0",
     "typescript": "^3.2.4",
+    "@types/node": "^12.12.16",
     "vue": "^2.5.22",{{/if_eq}}
     "vue-loader": "^15.4.0"
   }
