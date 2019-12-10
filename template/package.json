@@ -35,6 +35,7 @@
     "node-sass": "^4.9.2",{{#if_eq lang "typescript"}}
     "tns-platform-declarations": "^6.0.0",
     "typescript": "^3.2.4",
+    "@types/node": "^12.12.16",
     "vue": "^2.5.22",{{/if_eq}}
     "vue-loader": "^15.4.0"
   }
