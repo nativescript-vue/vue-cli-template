@@ -1,8 +1,8 @@
 import Vue from 'nativescript-vue'
 import App from './components/App'
 
-{{#devtools}}import VueDevtools from 'nativescript-vue-devtools'{{/devtools}}
 {{#store}}import store from './store'{{/store}}
+{{#devtools}}import VueDevtools from 'nativescript-vue-devtools'{{/devtools}}
 
 {{#devtools}}
 if(TNS_ENV !== 'production') {
