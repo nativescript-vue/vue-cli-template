@@ -12,6 +12,9 @@ if(TNS_ENV !== 'production') {
 
 // Prints Vue logs when --env.production is *NOT* set while building
 Vue.config.silent = (TNS_ENV === 'production')
+// Prints Colored logs when --env.production is *NOT* set while building
+// @ts-ignore
+Vue.config.debug = (TNS_ENV !== 'production')
 
 {{#if_eq preset "SideDrawer"}}
 Vue.registerElement(
