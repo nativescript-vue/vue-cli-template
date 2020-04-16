@@ -1,20 +1,15 @@
 import Vue from 'nativescript-vue'
 import App from './components/App'
+{{#devtools}}import VueDevtools from 'nativescript-vue-devtools'
 
-{{#store}}import store from './store'{{/store}}
-{{#devtools}}import VueDevtools from 'nativescript-vue-devtools'{{/devtools}}
-
-{{#devtools}}
 if(TNS_ENV !== 'production') {
   Vue.use(VueDevtools)
 }
 {{/devtools}}
+{{#store}}import store from './store'{{/store}}
 
 // Prints Vue logs when --env.production is *NOT* set while building
 Vue.config.silent = (TNS_ENV === 'production')
-// Prints Colored logs when --env.production is *NOT* set while building
-// @ts-ignore
-Vue.config.debug = (TNS_ENV !== 'production')
 
 {{#if_eq preset "SideDrawer"}}
 Vue.registerElement(
