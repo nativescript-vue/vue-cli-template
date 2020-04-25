@@ -15,14 +15,14 @@
     }
   },
   "dependencies": { {{#store}}
-    "vuex": "^3.1.1",{{/store}}{{#devtools}}
+    "vuex": "^3.3.0",{{/store}}{{#devtools}}
     "@vue/devtools": "^5.3.3",
     "nativescript-socketio": "^3.3.1",
     "nativescript-vue-devtools": "^1.4.0",
     "nativescript-toasty": "^3.0.0-alpha.2",{{/devtools}}{{#if_eq preset "SideDrawer"}}
     "nativescript-ui-sidedrawer": "^8.0.1",{{/if_eq}}{{#unless_eq color_scheme "none"}}
     "@nativescript/theme": "^2.2.1",{{/unless_eq}}
-    "nativescript-vue": "^2.6.0",
+    "nativescript-vue": "^2.6.1",
     "tns-core-modules": "^6.5.1"
   },
   "devDependencies": {
