@@ -28,7 +28,26 @@ tns run
 
 # Clean the NativeScript application instance
 tns platform remove <platform>
+
+# Hot Module Replacement (HMR) disabled Debugging session 
+tns debug <platform> --no-hmr
 ```
+<details><summary>Yarn usage</summary>
+<p>
+
+``` bash
+# Scaffold project
+yarn global add @vue/cli @vue/cli-init
+vue init nativescript-vue/vue-cli-template <project-name>
+cd <project-name>
+
+# Install dependencies
+yarn
+
+```
+
+</p>
+</details>
 
 ### Debugging vs Production
 
