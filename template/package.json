@@ -21,21 +21,21 @@
     "nativescript-vue-devtools": "^1.4.0",
     "nativescript-toasty": "^3.0.0-alpha.2",{{/devtools}}{{#if_eq preset "SideDrawer"}}
     "nativescript-ui-sidedrawer": "^8.0.1",{{/if_eq}}{{#unless_eq color_scheme "none"}}
-    "@nativescript/theme": "^2.2.1",{{/unless_eq}}
+    "@nativescript/theme": "^2.3.3",{{/unless_eq}}
     "nativescript-vue": "^2.6.4",
-    "tns-core-modules": "^6.5.1"
+    "tns-core-modules": "^6.5.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.0",
-    "@babel/preset-env": "^7.10.0",
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
     "babel-loader": "^8.1.0",
     "nativescript-dev-webpack": "^1.5.1",
     "nativescript-vue-template-compiler": "^2.6.4",
-    "nativescript-worker-loader": "~0.11.0",
+    "nativescript-worker-loader": "~0.12.0",
     "node-sass": "^4.14.1",{{#if_eq lang "typescript"}}
-    "tns-platform-declarations": "^6.5.1",
-    "typescript": "^3.8.3",
-    "@types/node": "^13.11.1",
+    "tns-platform-declarations": "^6.5.7",
+    "typescript": "^3.9.5",
+    "@types/node": "^14.0.13",
     "vue": "^2.6.11",{{/if_eq}}
     "vue-loader": "^15.9.2"
   }
