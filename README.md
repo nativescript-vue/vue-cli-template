@@ -73,7 +73,7 @@ tns run <platform> --env.production
 
 ## Using NativeScript plugins
 
-Installing plugins is the same as official NativeScript [documentation](https://docs.nativescript.org/plugins/plugins#installing-plugins).
+Installing plugins is the same as official NativeScript [documentation](https://docs.nativescript.org/tooling/docs-cli/lib-management/plugin-add).
 
 Use `tns plugin add` from the root of the project directory.
 
