@@ -153,7 +153,7 @@ module.exports = {
     'README.md': '!inPlace',
     '.gitignore': '!inPlace',
 
-    'tsconfig.js': '!inPlace && lang == "typescript"',
+    'tsconfig.json': '!inPlace && lang == "typescript"',
     'types/**/*': '!inPlace && lang == "typescript"',
     'src/router/**/*': '!inPlace && router',
     'src/components/Home.vue': '!inPlace && router',
