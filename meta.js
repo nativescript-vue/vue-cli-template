@@ -178,9 +178,9 @@ module.exports = {
     } else {
       logger.log(`cd ${chalk.yellow(data.destDirName)}`)
       logger.log(`npm install`)
-      logger.log(`tns preview`)
+      logger.log(`ns preview`)
       logger.log(chalk.grey(`# or`))
-      logger.log(`tns run`)
+      logger.log(`ns run`)
     }
   }
 }
