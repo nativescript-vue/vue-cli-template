@@ -146,20 +146,20 @@ module.exports = {
     },
   },
   filters: {
-    'app/**/!(main.ts|main.js)': '!inPlace',
-    'app/main.js': '!inPlace && lang == "javascript"',
-    'app/main.ts': '!inPlace && lang == "typescript"',
+    'src/**/!(main.ts|main.js)': '!inPlace',
+    'src/main.js': '!inPlace && lang == "javascript"',
+    'src/main.ts': '!inPlace && lang == "typescript"',
     'package.json': '!inPlace',
     'README.md': '!inPlace',
     '.gitignore': '!inPlace',
 
-    'app/tsconfig.js': '!inPlace && lang == "typescript"',
-    'app/types/**/*': '!inPlace && lang == "typescript"',
-    'app/router/**/*': '!inPlace && router',
-    'app/components/Home.vue': '!inPlace && router',
-    'app/store.js': '!inPlace && store && lang == "javascript"',
-    'app/store.ts': '!inPlace && store && lang == "typescript"',
-    'app/components/Counter.vue': '!inPlace && store',
+    'tsconfig.json': '!inPlace && lang == "typescript"',
+    'types/**/*': '!inPlace && lang == "typescript"',
+    'src/router/**/*': '!inPlace && router',
+    'src/components/Home.vue': '!inPlace && router',
+    'src/store.js': '!inPlace && store && lang == "javascript"',
+    'src/store.ts': '!inPlace && store && lang == "typescript"',
+    'src/components/Counter.vue': '!inPlace && store',
   },
   complete(data, {logger, chalk}) {
     if (data.inPlace) {
@@ -178,9 +178,9 @@ module.exports = {
     } else {
       logger.log(`cd ${chalk.yellow(data.destDirName)}`)
       logger.log(`npm install`)
-      logger.log(`tns preview`)
+      logger.log(`ns preview`)
       logger.log(chalk.grey(`# or`))
-      logger.log(`tns run`)
+      logger.log(`ns run`)
     }
   }
 }

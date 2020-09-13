@@ -1,9 +1,0 @@
-{
-  "android": {
-    "v8Flags": "--expose_gc",
-    "markingMode": "none"
-  },
-  "main": "main",
-  "name": "{{ name }}",
-  "version": "{{ version }}"
-}
