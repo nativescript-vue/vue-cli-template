@@ -13,19 +13,19 @@
     "nativescript-toasty": "^3.0.0-alpha.2",{{/devtools}}{{#if_eq preset "SideDrawer"}}
     "nativescript-ui-sidedrawer": "^9.0.0",{{/if_eq}}{{#unless_eq color_scheme "none"}}
     "@nativescript/theme": "^2.3.3",{{/unless_eq}}
-    "nativescript-vue": "^2.8.0",
-    "@nativescript/core": "^7.0.0"
+    "nativescript-vue": "^2.8.1",
+    "@nativescript/core": "^7.0.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.5",
+    "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
     "babel-loader": "^8.1.0",
-    "@nativescript/webpack": "^3.0.0",
-    "nativescript-vue-template-compiler": "^2.8.0",
+    "@nativescript/webpack": "^3.0.4",
+    "nativescript-vue-template-compiler": "^2.8.1",
     "nativescript-worker-loader": "~0.12.1",
-    "node-sass": "^4.14.1",{{#if_eq lang "typescript"}}
+    "sass": "^1.26.10",{{#if_eq lang "typescript"}}
     "@nativescript/types": "^7.0.0",
-    "typescript": "^3.9.4",
+    "typescript": "^3.9.7",
     "@types/node": "^14.6.2",
     "vue": "^2.6.12",{{/if_eq}}
     "vue-loader": "^15.9.3"
