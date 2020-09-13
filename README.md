@@ -1,4 +1,4 @@
-> **Note:** This is a new version of the template, if you are looking for the old template, it is available on the [legacy branch](https://github.com/nativescript-vue/vue-cli-template/tree/legacy).
+> **Note:** This is a new version of the template for NativeScript 7, if you are looking for the old template, it is available on the [ns6 branch](https://github.com/nativescript-vue/vue-cli-template/tree/ns6).
 
 # vue-cli-template
 
@@ -18,19 +18,19 @@ cd <project-name>
 npm install
 
 # Build
-tns build <platform>
+ns build <platform>
 
 # Preview the application on a device
-tns preview
+ns preview
 
 # Build, watch for changes and run the application
-tns run
+ns run
 
 # Clean the NativeScript application instance
-tns platform remove <platform>
+ns platform remove <platform>
 
 # Hot Module Replacement (HMR) disabled Debugging session 
-tns debug <platform> --no-hmr
+ns debug <platform> --no-hmr
 ```
 <details><summary>Yarn usage</summary>
 <p>
@@ -58,27 +58,25 @@ During usual run, project runs with following settings -
 
 ```bash
 # Build, watch for changes and debug the application
-tns debug <platform>
+ns debug <platform>
 ```
 
 To minify code, and prevent Vue logs -
 
 ```bash
 # Build for production
-tns build <platform> --env.production
+ns build <platform> --env.production
 
 # Run as production
-tns run <platform> --env.production
+ns run <platform> --env.production
 ```
 
 ## Using NativeScript plugins
 
 Installing plugins is the same as official NativeScript [documentation](https://docs.nativescript.org/plugins/plugins#installing-plugins).
 
-Use `tns plugin add` from the root of the project directory.
+Use `ns plugin add` from the root of the project directory.
 
 ```shell
-tns plugin add <plugin-name>
+ns plugin add <plugin-name>
 ```
-
-Please note that some plugins still have issues resolving with this template, visit the community [Slack](https://developer.telerik.com/wp-login.php?action=slack-invitation) for getting them to work and for general help.
