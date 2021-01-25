@@ -8,10 +8,10 @@
     "id": "{{ app_id }}",
     "templateVersion": "v2",
     "tns-android": {
-      "version": "6.5.0"
+      "version": "6.5.3"
     },
     "tns-ios": {
-      "version": "6.5.0"
+      "version": "6.5.4"
     }
   },
   "dependencies": { {{#store}}
@@ -22,7 +22,7 @@
     "nativescript-toasty": "^3.0.0-alpha.2",{{/devtools}}{{#if_eq preset "SideDrawer"}}
     "nativescript-ui-sidedrawer": "^8.0.1",{{/if_eq}}{{#unless_eq color_scheme "none"}}
     "@nativescript/theme": "^2.2.1",{{/unless_eq}}
-    "nativescript-vue": "^2.6.1",
+    "nativescript-vue": "~2.7.1",
     "tns-core-modules": "^6.5.1"
   },
   "devDependencies": {
@@ -30,7 +30,7 @@
     "@babel/preset-env": "^7.0.0",
     "babel-loader": "^8.1.0",
     "nativescript-dev-webpack": "^1.5.1",
-    "nativescript-vue-template-compiler": "^2.6.0",
+    "nativescript-vue-template-compiler": "~2.7.1",
     "nativescript-worker-loader": "~0.11.0",
     "node-sass": "^4.13.1",{{#if_eq lang "typescript"}}
     "tns-platform-declarations": "^6.5.1",
