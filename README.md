@@ -1,3 +1,16 @@
+# Deprecated :warning:
+
+This template has been deprecated in favor of using the `ns create` command:
+
+```bash
+ns create myAwesomeApp --vue # add --ts if you'd like to scaffold a project with TypeScript
+cd myAwesomeApp
+ns run ios|android
+```
+
+---
+
+
 > **Note:** This is a new version of the template for NativeScript 7, if you are looking for the old template, it is available on the [ns6 branch](https://github.com/nativescript-vue/vue-cli-template/tree/ns6).
 
 # vue-cli-template
